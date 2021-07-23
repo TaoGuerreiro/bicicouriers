@@ -1,8 +1,8 @@
-<div class="z-50 h-screen w-screen pt-24 md:px-24 lg:px-48 xl:px-96 transition" data-delivery-target="form">
-    <div class="bg-white m-auto h-auto rounded-xl p-4">
+<div class="z-50 h-screen w-screen  pt-16 md:px-24 lg:px-48 xl:px-72 2xl:px-96 transition" data-delivery-target="form">
+    <div class="bg-white m-auto h-auto rounded-xl px-4 pt-2 pb-4">
       <p class="text-right"><i data-action="click->delivery#abort" class="fas fa-times col-span-full hover:text-gray-400 text-lg mr-1"></i></p>
       <%= simple_form_for @delivery, data: {reflex: 'submit->Delivery#create'} do |field|%>
-      <div class="grid grid-cols-2 gap-2 p-4">
+      <div class="grid md:grid-cols-2 gap-2 p-4">
         <%= field.hidden_field :distance %>
         <%= field.hidden_field :tickets_distance%>
         <div class="w-full h-full">
