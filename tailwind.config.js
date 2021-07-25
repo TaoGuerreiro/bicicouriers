@@ -9,9 +9,17 @@ module.exports = {
     },
     darkMode: false, // or 'media' or 'class'
     theme: {
+      minHeight: {
+         '96': '24rem',
+         '64': '16rem',
+       },
+       minWidth: {
+        '96': '24rem',
+        '64': '16rem',
+        '72': '18rem',
+      },
       extend: {
         backgroundImage: theme => ({
-
           'bridge-image': "url('../../assets/images/story/story-image.png')",
           'bridge-large-image': "url('../../assets/images/velo-sur-pont-nantes.png')"
          }),

@@ -57,44 +57,47 @@ puts '________________CITIES => OK__________________'
 
 
 puts '___________________SERVICES___________________'
-  Service.create(
+  Service.create!(
     {
       title: "Transport urgent",
       content: "Vous avez une demande express ? Vous souhaitez faire livrer une lettre ou un colis pendant les heures de pointes ? La livraison express  par coursiers à vélos sur Nantes est la plus rapide ! Nos coursiers pratique le cyclisme sportif et mettent leur efficacité à votre service en livrant votre colis 45 minutes seulement après votre demande.",
       images: "services/transport_urgent_nantes.svg",
       details:  "Vous avez une demande express ? Vous souhaitez faire livrer une lettre ou un colis pendant les heures de pointes ? La livraison express  par coursiers à vélos sur Nantes est la plus rapide ! Nos coursiers pratique le cyclisme sportif et mettent leur efficacité à votre service en livrant votre colis 45 minutes seulement après votre demande.",
-
+      city: nantes
     }
   )
 
-  Service.create(
+  Service.create!(
     {
       title: "Equilibre des vos stocks",
       content: "Facilitez la logistique de vos produits entre vos différents magasins ! Un coursier enlève la marchandise d’un magasin A vers un magasin B ou directement chez votre client, notamment lors des périodes de soldes où les stocks s’écoulent rapidement. Un avantage logistique qui n’est pas dépendant du trafic automobile de la ville.",
       images: "services/gestion_stock_nantes.svg",
-      details: "Facilitez la logistique de vos produits entre vos différents magasins ! Un coursier enlève la marchandise d’un magasin A vers un magasin B ou directement chez votre client, notamment lors des périodes de soldes où les stocks s’écoulent rapidement. Un avantage logistique qui n’est pas dépendant du trafic automobile de la ville."
+      details: "Facilitez la logistique de vos produits entre vos différents magasins ! Un coursier enlève la marchandise d’un magasin A vers un magasin B ou directement chez votre client, notamment lors des périodes de soldes où les stocks s’écoulent rapidement. Un avantage logistique qui n’est pas dépendant du trafic automobile de la ville.",
+      city: nantes
     }
   )
 
-  Service.create(
+  Service.create!(
     {
       title: "Mutualisation de vos flux de transport",
       content: "Du ramassage de courrier à la tournée de livraison  de flyers et prospectus commercial, optez pour une solution rapide, économique et eco-friendly. Nos coursiers peuvent récupérer vos colis dans vos agences pour mutualiser la livraison, ou inversement. Profitez de nos vélos cargos pour faire livrer de nombreux colis ou objets encombrants ! ",
       images: "services/mutualisation.svg",
       details: "Du ramassage de courrier à la tournée de livraison  de flyers et prospectus commercial, optez pour une solution rapide, économique et eco-friendly. Nos coursiers peuvent récupérer vos colis dans vos agences pour mutualiser la livraison, ou inversement. Profitez de nos vélos cargos pour faire livrer de nombreux colis ou objets encombrants ! ",
+      city: nantes
     }
   )
 
-  Service.create(
+  Service.create!(
     {
       title: "Privatisation de coursiers",
       content: "Privatisez un de nos livreur coursier pour l’organisation et le déroulement de vos événements ! Mettez à votre dispositions des mollets de compétitions pour anticiper et gérer tous vos besoins de transport de matériel et autres éléments avec la plus grande rapidité et réactivité. Adieu le problème des bouchons ! ",
       images: "services/privatisation_de_coursier.svg",
-      details: "Privatisez un de nos livreur coursier pour l’organisation et le déroulement de vos événements ! Mettez à votre dispositions des mollets de compétitions pour anticiper et gérer tous vos besoins de transport de matériel et autres éléments avec la plus grande rapidité et réactivité. Adieu le problème des bouchons ! "
+      details: "Privatisez un de nos livreur coursier pour l’organisation et le déroulement de vos événements ! Mettez à votre dispositions des mollets de compétitions pour anticiper et gérer tous vos besoins de transport de matériel et autres éléments avec la plus grande rapidité et réactivité. Adieu le problème des bouchons ! ",
+      city: nantes
     }
   )
 
-  Service.create(
+  Service.create!(
     {
       title: "Gestion du courrier entreprise",
       content: "La légendaire tournée du facteur est trop tardive ?
@@ -103,11 +106,12 @@ puts '___________________SERVICES___________________'
       images: "services/relai_poste.svg",
       details: "La légendaire tournée du facteur est trop tardive ?
       Bici Couriers répond à votre demande en toute simplicité. Choisissez une heure de dépôt et de retrait du courrier et laissez vous du temps pour faire autre chose.
-    Plus besoin de courir à la poste avant qu’elle ferme !"
+    Plus besoin de courir à la poste avant qu’elle ferme !",
+      city: nantes
     }
   )
 
-  Service.create(
+  Service.create!(
     {
       title: "Votre coursier sur mesure",
       content: "Vous avez un besoin ou une demande particulière pour nous ?
@@ -116,7 +120,8 @@ puts '___________________SERVICES___________________'
       images: "services/livraisons_sur_mesure.svg",
       details: "Vous avez un besoin ou une demande particulière pour nous ?
       Bici Couriers s’engage à réaliser tous les défis (dans la limite du réalisable). On vous parie qu’on y arrivera #transportdecanapé.
-      Nous proposons également des abonnements et carnets de tickets pour les demandes récurrentes. "
+      Nous proposons également des abonnements et carnets de tickets pour les demandes récurrentes. ",
+      city: nantes
     }
   )
 puts '________________SERVICES => OK________________'
