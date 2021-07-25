@@ -39,14 +39,13 @@
 }
 </script>
 
-<div data-controller="service" class="w-screen h-screen grid grid-cols-2">
+<div data-controller="service" class="w-screen lg:h-screen lg:grid lg:grid-cols-4">
 
-
-
-  <%# <div data-service-target="containers" class=" md:h-screen pt-20 md:pt-0 md:my-auto flex flex-col md:flex-row md:overflow-x-scroll bg-blue-700"> %>
-
-  <div class="bg-red-100 flex items-center">
-    <div class="p-24">
+  <div class="relative flex items-center lg:col-span-1 2xl:col-span-2 ">
+    <div data-service-target="egg" class="absolute top-20 right-12 flex justify-end z-0 opacity-0 lg:opacity-100">
+      <%= image_tag 'services/oeuf_1.svg', alt: "oeuf-sur-le-plat-design", class: "h-96 transform translate-x-24" %>
+    </div>
+    <div class="p-24 z-30">
       <div class="w-80 z-20">
         <h1 class="text-6xl mb-6 text-blue-bici font-bold">Nos Services</h1>
       </div>
@@ -56,16 +55,26 @@
     </div>
   </div>
 
-  <div class="bg-red-200">
-    <div class="relative flex justify-center h-screen">
+  <div class="grid grid-cols-5 lg:m-24 select-none z-10 lg:col-span-3 2xl:col-span-2 ">
+
+    <div class="absolute right-24 flex justify-end items-end opacity-0 lg:opacity-100">
+      <%= image_tag 'services/ellipse.svg', alt: "elipse-design"%>
+    </div>
+
+    <div class="flex justify-center items-center text-blue-bici text-8xl"><i data-action="click->service#previous" class="cursor-pointer transform hover:text-yellow-bici hover:scale-110 -rotate-12 translate-y-16 transition fas fa-chevron-left"></i></div>
+
+
+    <div class="relative min-h-96 flex justify-center col-span-3 lg:my-24">
+
+
       <% @services.each do |service| %>
-        <div class="absolute transform translate-y-1/2 py-auto bg-blue-bici mx-4 md:my-auto mb-10 h-96 flex flex-col items-center rounded-xl p-4">
-          <div class="w-72 h-full pb-10 flex flex-col items-center justify-between">
-            <div class="text-center">
-              <h2 class="text-2xl text-white "> <%= service.title %> </h2>
+        <div data-service-target="card" class="z-30 min-h-96 min-w-72 transform transition hidden opacity-0 absolute transform bg-blue-bici h-full flex flex-col items-center justify-between rounded-xl p-4">
+          <div class="w-full h-full pb-10 flex flex-col items-center">
+            <div class="text-center z-50">
+              <h2 class="text-4xl text-white "> <%= service.title %> </h2>
             </div>
-            <div class="text-center">
-              <p class="text-white "> <%= service.content %> </p>
+            <div class="h-3/4 flex items-center overflow-hidden ">
+              <div class=""><%= image_tag service.images, alt: "service-de-bicicouriers", class: "object-contain"  %></div> <!-- trouver comment contain l'image à la place de l'overflow hidden-->
             </div>
           </div>
           <div class="-mb-8">
@@ -73,41 +82,15 @@
           </div>
         </div>
       <% end %>
+
     </div>
+
+    <div class=" flex justify-center items-center text-blue-bici text-8xl"><i data-action="click->service#next" class="cursor-pointer transform hover:text-yellow-bici hover:scale-110 -rotate-12 -translate-y-16 transition fas fa-chevron-right"></i></div>
+
+    <div class="absolute right-0 bottom-0 flex justify-end items-end h-4 z-0">
+      <%= image_tag 'services/oeuf_2.svg', alt: "oeuf-sur-le-plat-design" %>
+    </div>
+
   </div>
 
-
 </div>
-
-<!--
-<div class="absolute right-0 bottom-0 flex justify-end items-end bg-blue-600 h-full h-4">
-  <%= image_tag 'services/oeuf_2.svg', alt: "oeuf-sur-le-plat-design" %>
-</div>
-
-<div data-service-target="egg" class="absolute top-20 left-64  bg-blue-500 flex justify-end h-4">
-  <%= image_tag 'services/oeuf_1.svg', alt: "oeuf-sur-le-plat-design", class: "h-64 transform translate-y-24 translate-x-24" %>
-</div>
-
-<div class="absolute top-20 right-64  bg-blue-400 flex justify-end items-end">
-  <%= image_tag 'services/ellipse.svg', alt: "elipse-design", class: "h-40" %>
-</div>
-
-<div class="col-span-2 h-full bg-blue-900">
-
-  <div class="absolute overflow-hidden w-screen">
-    <svg width="3028" height="207" viewBox="0 0 3028 207" fill="none" xmlns="http://www.w3.org/2000/svg">
-      <circle cx="9" cy="31.6521" r="9" fill="#FFCC00"/>
-      <path d="M14 35.6519C45 64.9852 137.5 122.952 259.5 120.152C412 116.652 482 8.15186 623 10.1519C764 12.1519 940.5 200.652 1131 191.652C1321.5 182.652 1438.5 -94.3479 1782 35.6519C1942.83 96.5192 2134 207.152 2367 205.152C2553.4 203.552 2935.17 106.152 3027.5 56.1519" stroke="#FFCC00" stroke-opacity="0.6" stroke-width="2" stroke-dasharray="5 5"/>
-    </svg>
-  </div>
-
-  <div class="absolute w-80 overflow-hidden">
-    <svg width="3028" height="207" viewBox="0 0 3028 207" fill="none" xmlns="http://www.w3.org/2000/svg">
-      <circle cx="9" cy="31.6521" r="9" fill="#FFCC00"/>
-      <path d="M14 35.6519C45 64.9852 137.5 122.952 259.5 120.152C412 116.652 482 8.15186 623 10.1519C764 12.1519 940.5 200.652 1131 191.652C1321.5 182.652 1438.5 -94.3479 1782 35.6519C1942.83 96.5192 2134 207.152 2367 205.152C2553.4 203.552 2935.17 106.152 3027.5 56.1519" stroke="#FFCC00" stroke-opacity="0.6" stroke-width="2"/>
-    </svg>
-  </div>
-
-
-</div>
--->
