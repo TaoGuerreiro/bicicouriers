@@ -48,7 +48,7 @@ class DeliveryReflex < ApplicationReflex
     @delivery.user = @user
     if @delivery.save
       morph "#notifications", render(NotificationComponent.new(type: 'success', data: {timeout: 10, title: 'Course enregistré !', body: "Nous avons pris note de la livraison, s'il nous manque des détails, nous vous recontacterons.", countdown: true }))
-      send_delivery_info_to_dispatch
+      # send_delivery_info_to_dispatch
     else
 
 
