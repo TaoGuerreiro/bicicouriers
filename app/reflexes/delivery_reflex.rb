@@ -37,7 +37,6 @@ class DeliveryReflex < ApplicationReflex
     end
 
   def urgence
-
   end
 
   def volume
@@ -49,20 +48,19 @@ class DeliveryReflex < ApplicationReflex
     if @delivery.save
       morph "#notifications", render(NotificationComponent.new(type: 'success', data: {timeout: 10, title: 'Course enregistré !', body: "Nous avons pris note de la livraison, s'il nous manque des détails, nous vous recontacterons.", countdown: true }))
       # send_delivery_info_to_dispatch
+      created
     else
-
-
       morph "#delivery_form", render(DeliveryFormComponent.new(delivery: @delivery, city: @city))
       morph "#notifications", render(NotificationComponent.new(type: 'error', data: {timeout: 10, title: 'Petite erreur ?', body: "Il semblerait qu'il manque quelque chose.", countdown: true }))
-      save_error
     end
   end
 
   private
 
-  def save_error
+  def created
 
   end
+
 
   def build
     @delivery = Delivery.new(delivery_params)

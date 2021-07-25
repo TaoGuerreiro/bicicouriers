@@ -4,11 +4,10 @@ import places from 'places.js';
 
 
 export default class extends Controller {
-  static targets = ['pickup', 'drop', 'form', 'switch', 'switchable']
+  static targets = ['pickup', 'drop', 'form', 'switch', 'switchable', 'submit']
 
   connect() {
     StimulusReflex.register(this)
-    // console.log(this.pickupTarget.value)
   }
 
   switch() {
@@ -31,7 +30,7 @@ export default class extends Controller {
   }
 
   save_errorSuccess() {
-    this.formTarget.classList.add('hidden')
+    // this.formTarget.classList.add('hidden')
   }
 
   displayDirection = () => {
@@ -72,34 +71,18 @@ export default class extends Controller {
     }
   }
 
-  beforeReflex() {
-    // console.log("coucou")
+  beforeCreate() {
+    this.submitTarget.value = "Validation"
+    this.submitTarget.disabled = true
   }
 
-  distanceSuccess() {
-    // console.log('OUI')
+  afterCreated() {
+    console.log('successsss')
+    this.formTarget.classList.add('hidden')
   }
 
-  calculDistance = () => {
-    // this.stimulate('Delivery#distance')
-  }
-
-  reflexError() {
-    // console.log('reflexError')
-  }
-  createSuccess() {
-    // this.abort();
-  }
-
-  reflexHalted() {
-    // console.log('reflexHalted')
-  }
   afterReflex() {
-    // console.log('afterReflex')
     this.initAddressAutoComplete();
-  }
-  finalizeReflex() {
-    // console.log('finalizeReflex')
   }
 
 }

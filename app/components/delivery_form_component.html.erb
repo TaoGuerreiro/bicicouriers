@@ -23,7 +23,6 @@
         <%= field.association :urgence, label: "Délai de livraison",    collection: Urgence.includes(:city_urgences).where(city_urgences: { city_id: @city.id }), include_blank: false, label_required: true, input_html: {'data-reflex': 'change->Delivery#urgence'} %>
         <%= field.association :volume,  label: "Volume à transporter",  collection: Volume.includes(:city_volumes).where(city_volumes: { city_id: @city.id }),  include_blank: false, label_required: true, input_html: {'data-reflex': 'change->Delivery#volume'}  %>
         <%= field.input :details, as: :text, placeholder: "Détails important pour la livraison (intephone, étage, etc.)", wrapper_html: {class: "col-span-full"}  %>
-        <%# <div class="h-40" id="map"></div> %>
         <div class="col-span-full flex justify-between">
           <%= field.input :phone, label: 'Téléphone', wrapper_html: { class: "w-1/2 pr-2" } %>
           <%= field.input :email, label: 'Email', wrapper_html: { class: "w-1/2" } %>
@@ -40,7 +39,7 @@
         </fieldset>
 
       </div>
-      <div class="flex justify-end"><%= field.submit "Commander", class: 'btn-bici w-40' %></div>
+      <div class="flex justify-end"><%= field.submit "Commander", class: 'btn-bici w-40', data: {'delivery-target': 'submit'} %></div>
       <% end %>
     </div>
 </div>
