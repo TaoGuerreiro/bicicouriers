@@ -2,7 +2,7 @@
   <% color_text = (params[:controller] == 'pages' || params[:controller] == 'services') && (params[:action] == 'home' || params[:action] == 'show' || params[:action] == 'story') ? 'text-gray-100' : 'text-blue-bici'  %>
 
 
-<nav class="absolute z-30 w-full" data-controller="navbar">
+<nav class="absolute z-50 w-full" data-controller="navbar">
   <div class="max-w mx-auto px-2 sm:px-6 lg:px-8">
     <div class="relative flex items-center justify-between h-16">
       <div class="absolute inset-y-0 left-0 flex items-center sm:hidden">
@@ -26,7 +26,7 @@
           <%# <img class="block lg:hidden h-8 w-auto" src="https://tailwindui.com/img/logos/workflow-mark-indigo-500.svg" alt="Workflow"> %>
           <%# <img class="hidden lg:block h-8 w-auto" src="https://tailwindui.com/img/logos/workflow-logo-indigo-500-mark-white-text.svg" alt="Workflow"> %>
         </div>
-        <div class="hidden w-full sm:block sm:ml-6">
+        <div class="z-50 hidden w-full sm:block sm:ml-6">
           <div class="flex justify-end max-w lg:space-x-10 space-x-4 text-center">
             <%= link_to "Les services", services_path, class: "px-2 py-1 rounded-md text-sm lg:text-lg font-normal hover:text-pink-bici #{color_text} tracking-wider" %>
             <%= link_to "Les avantages", avantages_path, class: "px-2 py-1 rounded-md text-sm lg:text-lg font-normal hover:text-pink-bici #{color_text} tracking-wider" %>
