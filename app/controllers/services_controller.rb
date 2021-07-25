@@ -7,6 +7,7 @@ class ServicesController < ApplicationController
 
   def index
     @services = Service.all
+    # raise
   end
 
   def show

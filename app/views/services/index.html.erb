@@ -39,38 +39,14 @@
 }
 </script>
 
-<div data-controller="service" class="md:h-screen w-screen flex relative overflow-y-hidden overflow-x-hidden">
-
-  <div class="absolute bottom-4 left-24">
-    <svg width="3028" height="207" viewBox="0 0 3028 207" fill="none" xmlns="http://www.w3.org/2000/svg">
-      <circle cx="9" cy="31.6521" r="9" fill="#FFCC00"/>
-      <path d="M14 35.6519C45 64.9852 137.5 122.952 259.5 120.152C412 116.652 482 8.15186 623 10.1519C764 12.1519 940.5 200.652 1131 191.652C1321.5 182.652 1438.5 -94.3479 1782 35.6519C1942.83 96.5192 2134 207.152 2367 205.152C2553.4 203.552 2935.17 106.152 3027.5 56.1519" stroke="#FFCC00" stroke-opacity="0.6" stroke-width="2" stroke-dasharray="5 5"/>
-    </svg>
-  </div>
-
-  <div data-service-target="line" class="absolute bottom-4 left-24 w-80 overflow-hidden">
-    <svg width="3028" height="207" viewBox="0 0 3028 207" fill="none" xmlns="http://www.w3.org/2000/svg">
-      <circle cx="9" cy="31.6521" r="9" fill="#FFCC00"/>
-      <path d="M14 35.6519C45 64.9852 137.5 122.952 259.5 120.152C412 116.652 482 8.15186 623 10.1519C764 12.1519 940.5 200.652 1131 191.652C1321.5 182.652 1438.5 -94.3479 1782 35.6519C1942.83 96.5192 2134 207.152 2367 205.152C2553.4 203.552 2935.17 106.152 3027.5 56.1519" stroke="#FFCC00" stroke-opacity="0.6" stroke-width="2"/>
-    </svg>
-  </div>
-
-  <div class="ellipse-1 z-0 ">
-    <%= image_tag 'services/ellipse.svg', alt: "elipse-design" %>
-  </div>
-
-  <div data-service-target="egg" class="absolute top-20 overflow">
-    <%= image_tag 'services/oeuf_1.svg', alt: "oeuf-sur-le-plat-design", class: "h-64" %>
-  </div>
-
-  <div class="absolute bottom-0 right-0 hidden">
-    <%= image_tag 'services/oeuf_2.svg', alt: "oeuf-sur-le-plat-design" %>
-  </div>
+<div data-controller="service" class="w-screen h-screen grid grid-cols-2">
 
 
-  <div data-service-target="container" class=" md:h-screen pt-20 md:pt-0 md:my-auto flex flex-col md:flex-row md:overflow-x-scroll ">
 
-    <div class="h-screen w-screen mx-auto px-4 md:pl-80 flex flex-col justify-center bg-red-300 ">
+  <%# <div data-service-target="containers" class=" md:h-screen pt-20 md:pt-0 md:my-auto flex flex-col md:flex-row md:overflow-x-scroll bg-blue-700"> %>
+
+  <div class="bg-red-100 flex items-center">
+    <div class="p-24">
       <div class="w-80 z-20">
         <h1 class="text-6xl mb-6 text-blue-bici font-bold">Nos Services</h1>
       </div>
@@ -78,10 +54,12 @@
         <p class="text-lg text-blue-bici ">En tant que coursiers à Nantes, nous mettons tout en oeuvre pour répondre à vos besoins de façon professionnelle, rapide et efficace. Nous sommes des experts en livraison urgente et express. Nos vélos cargos nous permettent de transporter même les marchandises les plus encombrantes.</p>
       </div>
     </div>
+  </div>
 
-    <div class=" md:h-screen w-auto flex flex-col md:flex-row px-4 md:px-24 z-20 bg-blue-300">
+  <div class="bg-red-200">
+    <div class="relative flex justify-center h-screen">
       <% @services.each do |service| %>
-        <div class=" bg-blue-bici mx-4 md:my-auto mb-10 h-96 flex flex-col items-center justify-between rounded-xl p-4">
+        <div class="absolute transform translate-y-1/2 py-auto bg-blue-bici mx-4 md:my-auto mb-10 h-96 flex flex-col items-center rounded-xl p-4">
           <div class="w-72 h-full pb-10 flex flex-col items-center justify-between">
             <div class="text-center">
               <h2 class="text-2xl text-white "> <%= service.title %> </h2>
@@ -96,8 +74,40 @@
         </div>
       <% end %>
     </div>
-
   </div>
 
 
 </div>
+
+<!--
+<div class="absolute right-0 bottom-0 flex justify-end items-end bg-blue-600 h-full h-4">
+  <%= image_tag 'services/oeuf_2.svg', alt: "oeuf-sur-le-plat-design" %>
+</div>
+
+<div data-service-target="egg" class="absolute top-20 left-64  bg-blue-500 flex justify-end h-4">
+  <%= image_tag 'services/oeuf_1.svg', alt: "oeuf-sur-le-plat-design", class: "h-64 transform translate-y-24 translate-x-24" %>
+</div>
+
+<div class="absolute top-20 right-64  bg-blue-400 flex justify-end items-end">
+  <%= image_tag 'services/ellipse.svg', alt: "elipse-design", class: "h-40" %>
+</div>
+
+<div class="col-span-2 h-full bg-blue-900">
+
+  <div class="absolute overflow-hidden w-screen">
+    <svg width="3028" height="207" viewBox="0 0 3028 207" fill="none" xmlns="http://www.w3.org/2000/svg">
+      <circle cx="9" cy="31.6521" r="9" fill="#FFCC00"/>
+      <path d="M14 35.6519C45 64.9852 137.5 122.952 259.5 120.152C412 116.652 482 8.15186 623 10.1519C764 12.1519 940.5 200.652 1131 191.652C1321.5 182.652 1438.5 -94.3479 1782 35.6519C1942.83 96.5192 2134 207.152 2367 205.152C2553.4 203.552 2935.17 106.152 3027.5 56.1519" stroke="#FFCC00" stroke-opacity="0.6" stroke-width="2" stroke-dasharray="5 5"/>
+    </svg>
+  </div>
+
+  <div class="absolute w-80 overflow-hidden">
+    <svg width="3028" height="207" viewBox="0 0 3028 207" fill="none" xmlns="http://www.w3.org/2000/svg">
+      <circle cx="9" cy="31.6521" r="9" fill="#FFCC00"/>
+      <path d="M14 35.6519C45 64.9852 137.5 122.952 259.5 120.152C412 116.652 482 8.15186 623 10.1519C764 12.1519 940.5 200.652 1131 191.652C1321.5 182.652 1438.5 -94.3479 1782 35.6519C1942.83 96.5192 2134 207.152 2367 205.152C2553.4 203.552 2935.17 106.152 3027.5 56.1519" stroke="#FFCC00" stroke-opacity="0.6" stroke-width="2"/>
+    </svg>
+  </div>
+
+
+</div>
+-->
