@@ -46,7 +46,7 @@ class DeliveryReflex < ApplicationReflex
     current_user == String ? @user = current_user : @user = User.first
     @delivery.user = @user
     if @delivery.save
-      # send_delivery_info_to_dispatch
+      DispatchMailer.with(delivery: @delivery, email: params[:delivery][:email], phone: params[:delivery][:phone]).new_delivery.deliver_now
       morph "#notifications", render(NotificationComponent.new(type: 'success', data: {timeout: 10, title: 'Course enregistrée !', body: "Nous avons pris note de la livraison, s'il nous manque des détails, nous vous recontacterons.", countdown: true }))
     else
       morph "#delivery_form", render(Delivery::FormComponent.new(delivery: @delivery, city: @city))

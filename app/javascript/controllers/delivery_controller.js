@@ -4,16 +4,16 @@ import places from 'places.js';
 
 
 export default class extends Controller {
-  static targets = ['pickup', 'drop', 'form', 'switch', 'switchable', 'submit']
+  static targets = ['pickup', 'drop', 'form', 'switch', 'switchable', 'submit', 'field']
 
   connect() {
     StimulusReflex.register(this)
   }
 
 
+
   beforeReflex() {
-    console.log(this.formTarget)
-    this.formTarget.classList.add('pointer-events-none')
+    // this.formTarget.classList.add('pointer-events-none')
   }
 
   switch() {
@@ -70,8 +70,11 @@ export default class extends Controller {
     const addressInput = document.querySelectorAll('.address-input')
     if (addressInput) {
       addressInput.forEach((input) => {
-        places({
+        const address = places({
           container: input,
+        });
+        address.on('change', ()=> {
+          // this.stimulate()
         });
       })
     }
