@@ -1,0 +1,11 @@
+<h1><%= @delivery.user.company %> </h1>
+<h1><%= @delivery.id  %> </h1>
+
+Pickup : <%= @delivery.pickups.first.address %><br>
+Drop : <%= @delivery.drops.first.address %><br>
+<br>
+<%= @delivery.pickups.first.date %> <%= @delivery.pickups.first.start_hour %> <%= @delivery.pickups.first.end_hour %>
+Détails : <% @delivery.details %><br>
+<br>
+Mail: <%= @email %>
+Téléphone: <%= @phone %>
