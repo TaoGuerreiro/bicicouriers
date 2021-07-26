@@ -1798,10 +1798,10 @@ bytes@3.1.0:
   resolved "https://registry.npmjs.org/bytes/-/bytes-3.1.0.tgz"
   integrity sha512-zauLjrfCG+xvoyaqLoV8bLVXXNGC4JqlxFCutSDWA6fJrTo2ZuvLYTqZ7aHBLZSMOopbzwv8f+wZcVzfVTI2Dg==
 
-"cable_ready@>= 4.4":
-  version "4.5.0"
-  resolved "https://registry.npmjs.org/cable_ready/-/cable_ready-4.5.0.tgz"
-  integrity sha512-9bom1DuYe1teBdRckgKWjg+rWRLWrkOvkhzlXkhb33X+Pfu/QK9e4vGk6hGK9PVKVr0SYZC41dByFGknW4spLg==
+cable_ready@5.0.0-pre2:
+  version "5.0.0-pre2"
+  resolved "https://registry.yarnpkg.com/cable_ready/-/cable_ready-5.0.0-pre2.tgz#c3589ebfe28a10db3998ae3711d31a072be53bfb"
+  integrity sha512-/Ql2e/Hz0kRRKzzz06sMXFm3+/qacYqSHfWkdt1CcsI7I6OOOhHzPAgY8VS+zqa/6+ggjWoPqHyi8Hr6j/0O6w==
   dependencies:
     morphdom "^2.6.1"
 
@@ -2611,6 +2611,11 @@ dashdash@^1.12.0:
   integrity sha1-hTz6D3y+L+1d4gMmuN1YEDX24vA=
   dependencies:
     assert-plus "^1.0.0"
+
+debounced@^0.0.5:
+  version "0.0.5"
+  resolved "https://registry.yarnpkg.com/debounced/-/debounced-0.0.5.tgz#e540b6eebfe703d93462711b4f3562ffd101b87f"
+  integrity sha512-8Bgheu1YxQB7ocqYmK2enbLGVoo4nCtu/V6UD/SMDOeV3g2LocG2CrA5oxudlyl79Ja07UiqGdp9pWZoJn52EQ==
 
 debug@2.6.9, debug@^2.2.0, debug@^2.3.3, debug@^2.6.9:
   version "2.6.9"
@@ -7502,13 +7507,13 @@ stimulus@^2.0.0:
     "@stimulus/core" "^2.0.0"
     "@stimulus/webpack-helpers" "^2.0.0"
 
-stimulus_reflex@3.4.0:
-  version "3.4.0"
-  resolved "https://registry.npmjs.org/stimulus_reflex/-/stimulus_reflex-3.4.0.tgz"
-  integrity sha512-hZrEzlmt8LWBZlmHadwPQh/JLqqLmwpkqxRN2DaDkEIXLhIUVL1kXvjsR4w/m4WIFDnFKiL0HEiCKHk8gfho6w==
+stimulus_reflex@3.5.0-pre2:
+  version "3.5.0-pre2"
+  resolved "https://registry.yarnpkg.com/stimulus_reflex/-/stimulus_reflex-3.5.0-pre2.tgz#ae831b557ca808a9b922bf09556837e2084099ff"
+  integrity sha512-yT8tj0VZj3lX4oA0pXfliLLExbwAuMQbIlOEXf2egtcxEOmWZ9Kc92/kT/NUkl+fVIJfR8wgEuvRFH3ECXHv5w==
   dependencies:
     "@rails/actioncable" ">= 6.0"
-    cable_ready ">= 4.4"
+    cable_ready "5.0.0-pre2"
 
 stream-browserify@^2.0.1:
   version "2.0.2"

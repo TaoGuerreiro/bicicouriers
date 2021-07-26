@@ -1,6 +1,6 @@
 # frozen_string_literal: true
 
-class DeliveryFormComponent < ViewComponent::Base
+class Delivery::FormComponent < ViewComponent::Base
   def initialize(delivery:, city:)
     @delivery = delivery
     @city = city

@@ -10,6 +10,12 @@ export default class extends Controller {
     StimulusReflex.register(this)
   }
 
+
+  beforeReflex() {
+    console.log(this.formTarget)
+    this.formTarget.classList.add('pointer-events-none')
+  }
+
   switch() {
     console.log(this.switchTarget)
     this.switchableTargets.forEach((target) => {
@@ -76,7 +82,7 @@ export default class extends Controller {
     this.submitTarget.disabled = true
   }
 
-  afterCreated() {
+  afterCreate() {
     console.log('successsss')
     this.formTarget.classList.add('hidden')
   }

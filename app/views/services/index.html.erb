@@ -39,29 +39,29 @@
 }
 </script>
 
-<div data-controller="service" class="w-screen lg:h-screen lg:grid lg:grid-cols-4">
+<div data-controller="service" class="w-screen lg:h-screen lg:grid md:grid-cols-3 lg:grid-cols-4">
 
-  <div class="relative flex items-center lg:col-span-1 2xl:col-span-2 ">
+  <div class="relative flex items-center lg:col-span-1 md:col-span-1 xl:col-span-2 ">
     <div data-service-target="egg" class="absolute top-20 right-12 flex justify-end z-0 w-0 md:w-auto opacity-0 lg:opacity-100">
-      <%= image_tag 'services/oeuf_1.svg', alt: "oeuf-sur-le-plat-design", class: "h-96 transform translate-x-24" %>
+      <%= image_tag 'services/oeuf_1.svg', alt: "oeuf-sur-le-plat-design", class: "h-72 transform translate-x-24" %>
     </div>
-    <div class="mx-12 pt-16 pb-6 md:p-24 z-30">
+    <div class="mx-12 pt-16 pb-6 md:py-16 md:px-12 z-30">
       <div class="w-80 z-20">
-        <h1 class="text-2xl md:text-6xl mb-6 text-blue-bici font-bold">Nos Services</h1>
+        <h1 class="text-2xl sm:text-6xl mb-6 text-blue-bici font-bold">Nos Services</h1>
       </div>
       <div class="services-info-text z-20">
-        <p class="text-sm md:text-lg text-blue-bici ">En tant que coursiers à Nantes, nous mettons tout en oeuvre pour répondre à vos besoins de façon professionnelle, rapide et efficace. Nous sommes des experts en livraison urgente et express. Nos vélos cargos nous permettent de transporter même les marchandises les plus encombrantes.</p>
+        <p class="text-sm sm:text-lg text-blue-bici ">En tant que coursiers à Nantes, nous mettons tout en oeuvre pour répondre à vos besoins de façon professionnelle, rapide et efficace. Nous sommes des experts en livraison urgente et express. Nos vélos cargos nous permettent de transporter même les marchandises les plus encombrantes.</p>
       </div>
     </div>
   </div>
 
-  <div class="grid grid-cols-5 lg:m-24 select-none z-10 lg:col-span-3 2xl:col-span-2 ">
+  <div class="grid grid-cols-5 md:m-16 lg:m-24 select-none z-10 md:col-span-2 lg:col-span-3 xl:col-span-2 ">
 
     <div class="absolute right-24 flex justify-end items-end w-0 md:w-auto opacity-0 lg:opacity-100">
       <%= image_tag 'services/ellipse.svg', alt: "elipse-design"%>
     </div>
 
-    <div class="flex justify-center items-center text-blue-bici text-5xl md:text-8xl"><i data-action="click->service#previous" class="cursor-pointer transform hover:text-yellow-bici hover:scale-110 -rotate-12 translate-y-16 transition fas fa-chevron-left"></i></div>
+    <div class="flex p-4 justify-end xl:justify-center items-center text-blue-bici text-5xl md:text-8xl"><i data-action="click->service#previous" class="cursor-pointer transform hover:text-yellow-bici hover:scale-110 -rotate-12 translate-y-16 transition fas fa-chevron-left"></i></div>
 
 
     <div class="relative min-h-96 flex justify-center col-span-3 lg:my-24">
@@ -85,9 +85,9 @@
 
     </div>
 
-    <div class=" flex justify-center items-center text-blue-bici text-5xl md:text-8xl"><i data-action="click->service#next" class="cursor-pointer transform hover:text-yellow-bici hover:scale-110 -rotate-12 -translate-y-16 transition fas fa-chevron-right"></i></div>
+    <div class=" flex p-4 justify-start xl:justify-center items-center text-blue-bici text-5xl md:text-8xl"><i data-action="click->service#next" class="cursor-pointer transform hover:text-yellow-bici hover:scale-110 -rotate-12 -translate-y-16 transition fas fa-chevron-right"></i></div>
 
-    <div class="absolute right-0 bottom-0 flex justify-end items-end h-4 z-0 w-0 md:w-auto opacity-0 md:opacity-100">
+    <div class="absolute right-0 bottom-0 flex justify-end items-end h-4 z-0 w-0 md:w-auto opacity-0 lg:opacity-100">
       <%= image_tag 'services/oeuf_2.svg', alt: "oeuf-sur-le-plat-design" %>
     </div>
 
