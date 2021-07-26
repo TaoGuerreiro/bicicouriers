@@ -46,21 +46,15 @@ class DeliveryReflex < ApplicationReflex
     current_user == String ? @user = current_user : @user = User.first
     @delivery.user = @user
     if @delivery.save
-      morph "#notifications", render(NotificationComponent.new(type: 'success', data: {timeout: 10, title: 'Course enregistré !', body: "Nous avons pris note de la livraison, s'il nous manque des détails, nous vous recontacterons.", countdown: true }))
       # send_delivery_info_to_dispatch
-      created
+      morph "#notifications", render(NotificationComponent.new(type: 'success', data: {timeout: 10, title: 'Course enregistrée !', body: "Nous avons pris note de la livraison, s'il nous manque des détails, nous vous recontacterons.", countdown: true }))
     else
-      morph "#delivery_form", render(DeliveryFormComponent.new(delivery: @delivery, city: @city))
+      morph "#delivery_form", render(Delivery::FormComponent.new(delivery: @delivery, city: @city))
       morph "#notifications", render(NotificationComponent.new(type: 'error', data: {timeout: 10, title: 'Petite erreur ?', body: "Il semblerait qu'il manque quelque chose.", countdown: true }))
     end
   end
 
   private
-
-  def created
-
-  end
-
 
   def build
     @delivery = Delivery.new(delivery_params)
@@ -68,7 +62,7 @@ class DeliveryReflex < ApplicationReflex
   end
 
   def morph_form
-    morph "#delivery_form", render(DeliveryFormComponent.new(delivery: @delivery, city: @city))
+    morph "#delivery_form", render(Delivery::FormComponent.new(delivery: @delivery, city: @city))
   end
 
   def delivery_params
