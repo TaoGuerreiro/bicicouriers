@@ -4,10 +4,11 @@ import places from 'places.js';
 
 
 export default class extends Controller {
-  static targets = ['pickup', 'drop', 'form', 'switchable', 'submit']
+  static targets = ['pickup', 'drop', 'form', 'switchable', 'submit', 'address-input']
 
   connect() {
     StimulusReflex.register(this)
+    this.initAddressAutoComplete();
   }
 
   beforeReflex() {
@@ -30,9 +31,8 @@ export default class extends Controller {
 
 
   initAddressAutoComplete = () => {
-    const addressInput = document.querySelectorAll('.address-input')
-    if (addressInput) {
-      addressInput.forEach((input) => {
+    if (this.hasAddressInput) {
+      this.addressInputTargets.forEach((input) => {
         const address = places({
           container: input,
         });
@@ -49,7 +49,4 @@ export default class extends Controller {
     this.submitTarget.classList.add('btn-bici-wait')
   }
 
-  afterReflex() {
-    this.initAddressAutoComplete();
-  }
 }

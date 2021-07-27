@@ -36,6 +36,8 @@ gem "breadcrumbs_on_rails"
 gem "stimulus_reflex", "~> 3.5.0.pre1"
 gem 'simple_form-tailwind'
 gem "view_component", require: "view_component/engine"
+gem 'sidekiq'
+gem 'sidekiq-failures', '~> 1.0'
 
 # fix alert bot
 

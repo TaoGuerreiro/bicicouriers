@@ -8,14 +8,14 @@
         <%= field.hidden_field :tickets_distance%>
         <div class="w-full h-full">
           <%= field.fields_for :pickups do |p|%>
-            <%= p.input :address, label: 'Adresse de départ', placeholder: "8 Passage de la poule noire, 44000 Nantes", input_html: {'data-reflex': 'debounced:change->Delivery#distance', 'data-delivery-target': "pickup", 'data-reflex-permanent': true, class: "address-input"  } %>
+            <%= p.input :address, label: 'Adresse de départ', placeholder: "8 Passage de la poule noire, 44000 Nantes", input_html: {'data-reflex': 'debounced:change->Delivery#distance', 'data-delivery-target': "pickup", 'data-delivery-target': "address-input",  'data-reflex-permanent': true } %>
             <%= p.input :start_hour, label: false, as: :string, input_html: { value: start_hour, class: 'hidden'  } %>
             <%= p.input :end_hour,   label: false, as: :string, input_html: { value: end_hour, class: 'hidden'  } %>
           <% end %>
         </div>
         <div class="w-full h-full">
           <%= field.fields_for :drops do |p|%>
-            <%= p.input :address, label: "Adresse d'arrivée", placeholder: "8 Passage de la poule noire, 44000 Nantes", input_html: {'data-reflex': 'debounced:change->Delivery#distance', 'data-delivery-target': "drop", 'data-reflex-permanent': true, class: "address-input"  } %>
+            <%= p.input :address, label: "Adresse d'arrivée", placeholder: "8 Passage de la poule noire, 44000 Nantes", input_html: {'data-reflex': 'debounced:change->Delivery#distance', 'data-delivery-target': "drop", 'data-delivery-target': "address-input",  'data-reflex-permanent': true } %>
             <%= p.input :start_hour, label: false, as: :string, input_html: { value: start_hour, class: 'hidden' } %>
             <%= p.input :end_hour,   label: false, as: :string, input_html: { value: end_hour, class: 'hidden'  } %>
           <% end %>

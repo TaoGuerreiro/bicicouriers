@@ -96,7 +96,7 @@ class DeliveryReflex < ApplicationReflex
     #MAIL
     DispatchMailer.with(delivery: delivery, email: email, phone: phone).new_delivery.deliver_now
     #SLACK
-    # SendSlackNotificationJob.perform_later(slack_message(delivery, phone, email))
+    SendSlackNotificationJob.perform_now(slack_message(delivery, phone, email))
     #DOM
     morph "#notifications", render(NotificationComponent.new(type: 'success', data: {timeout: 10, title: 'Course enregistrée !', body: "Nous avons pris note de la livraison, s'il nous manque des détails, nous vous recontacterons.", countdown: true }))
   end
