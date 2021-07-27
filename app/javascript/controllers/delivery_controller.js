@@ -43,7 +43,7 @@ export default class extends Controller {
   }
 
   beforeCreate() {
-    this.submitTarget.value = "Patientez"
+    this.submitTarget.value = "Patienter"
     this.submitTarget.disabled = true
     this.submitTarget.classList.remove('btn-bici')
     this.submitTarget.classList.add('btn-bici-wait')
