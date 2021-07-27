@@ -34,7 +34,7 @@ class DeliveryReflex < ApplicationReflex
       @delivery.tickets_distance = ((@delivery.distance / 1000) / 3.5).ceil
     rescue NoMethodError
      end
-    end
+  end
 
   def urgence
   end
@@ -46,9 +46,8 @@ class DeliveryReflex < ApplicationReflex
     current_user == String ? @user = current_user : @user = User.first
     @delivery.user = @user
     if @delivery.save
-      send_notification(@delivery, params[:delivery][:email], params[:delivery][:phone])
-      cable_ready.add_css_class(selector: '[id="form"]', name: 'hidden').broadcast
-      # morph :nothing
+      # send_notifications(@delivery, params[:delivery][:email], params[:delivery][:phone])
+      # cable_ready.add_css_class(selector: '[id="form"]', name: 'hidden').broadcast
     else
       morph "#delivery_form", render(Delivery::FormComponent.new(delivery: @delivery, city: @city))
       morph "#notifications", render(NotificationComponent.new(type: 'error', data: {timeout: 10, title: 'Petite erreur ?', body: "Il semblerait qu'il manque quelque chose.", countdown: true }))
@@ -92,7 +91,7 @@ class DeliveryReflex < ApplicationReflex
     }
   end
 
-  def send_notification(delivery, email, phone)
+  def send_notifications(delivery, email, phone)
     #MAIL
     DispatchMailer.with(delivery: delivery, email: email, phone: phone).new_delivery.deliver_now
     #SLACK
@@ -117,4 +116,5 @@ class DeliveryReflex < ApplicationReflex
                                     pickups_attributes:[:id, :details, :date, :address, :start_hour, :end_hour, :favorite_address],
                                     delivery_options_attributes:[ :option_id, :user_option])
   end
+
 end

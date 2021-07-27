@@ -8,14 +8,24 @@ export default class extends Controller {
 
   connect() {
     StimulusReflex.register(this)
-    // this.initAddressAutoComplete();
   }
 
-  // beforeReflex() {
-  //   if (this.hasFormTarget) {
-  //     this.formTarget.classList.add('pointer-events-none')
-  //   }
-  // }
+  beforeReflex() {
+    if (this.hasFormTarget) {
+      this.formTarget.classList.add('pointer-events-none')
+    }
+  }
+
+  beforeCreate() {
+    this.submitTarget.value = "Patienter"
+    this.submitTarget.disabled = true
+    this.submitTarget.classList.remove('btn-bici')
+    this.submitTarget.classList.add('btn-bici-wait')
+  }
+
+  afterReflex() {
+    this.initAddressAutoComplete();
+  }
 
   switch() {
     this.switchableTargets.forEach((target) => {
@@ -26,7 +36,6 @@ export default class extends Controller {
   exit = () => {
     this.formTarget.classList.add("hidden");
   }
-
 
   initAddressAutoComplete = () => {
     if (this.hasAddressTarget) {
@@ -40,14 +49,5 @@ export default class extends Controller {
     }
   }
 
-  // beforeCreate() {
-  //   this.submitTarget.value = "Patienter"
-  //   this.submitTarget.disabled = true
-  //   this.submitTarget.classList.remove('btn-bici')
-  //   this.submitTarget.classList.add('btn-bici-wait')
-  // }
 
-  // afterReflex() {
-  //   this.initAddressAutoComplete();
-  // }
 }
