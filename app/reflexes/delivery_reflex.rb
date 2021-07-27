@@ -97,7 +97,7 @@ class DeliveryReflex < ApplicationReflex
     #SLACK
     SendSlackNotificationJob.perform_now(slack_message(delivery, phone, email))
     #MAIL
-    DispatchMailer.with(delivery: delivery, email: email, phone: phone).new_delivery.deliver_now
+    # DispatchMailer.with(delivery: delivery, email: email, phone: phone).new_delivery.deliver_now
   end
 
   def build
