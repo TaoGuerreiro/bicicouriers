@@ -43,11 +43,11 @@ class DeliveryReflex < ApplicationReflex
   end
 
   def create
-    current_user == String ? @user = current_user : @user = User.first
+    current_user == String ? @user = current_user : @user = User.first #Need to create Guest model
     @delivery.user = @user
     if @delivery.save
-      # send_notifications(@delivery, params[:delivery][:email], params[:delivery][:phone])
-      # cable_ready.add_css_class(selector: '[id="form"]', name: 'hidden').broadcast
+      send_notifications(@delivery, params[:delivery][:email], params[:delivery][:phone])
+      cable_ready.add_css_class(selector: '[id="form"]', name: 'hidden').broadcast
     else
       morph "#delivery_form", render(Delivery::FormComponent.new(delivery: @delivery, city: @city))
       morph "#notifications", render(NotificationComponent.new(type: 'error', data: {timeout: 10, title: 'Petite erreur ?', body: "Il semblerait qu'il manque quelque chose.", countdown: true }))
@@ -93,7 +93,7 @@ class DeliveryReflex < ApplicationReflex
 
   def send_notifications(delivery, email, phone)
     #MAIL
-    DispatchMailer.with(delivery: delivery, email: email, phone: phone).new_delivery.deliver_now
+    # DispatchMailer.with(delivery: delivery, email: email, phone: phone).new_delivery.deliver_now
     #SLACK
     SendSlackNotificationJob.perform_now(slack_message(delivery, phone, email))
     #DOM
