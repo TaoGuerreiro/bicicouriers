@@ -27,11 +27,6 @@ class Delivery < ApplicationRecord
 
   # after_create :send_delivery_info_to_dispatch
   private
-
-  def send_delivery_info_to_dispatch
-
-  end
-
   # def send_delivery_info_to_user
   #   UserMailer.with(delivery: self).new_delivery.deliver_now
   # end
