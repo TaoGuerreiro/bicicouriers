@@ -35,6 +35,7 @@ gem 'friendly_id', '~> 5.4.0'
 gem "breadcrumbs_on_rails"
 gem "stimulus_reflex", "~> 3.5.0.pre1"
 gem 'simple_form-tailwind'
+gem 'slack-notifier'
 
 gem "view_component", require: "view_component/engine"
 

@@ -8,6 +8,9 @@
     .btn-bici {
       @apply py-2 px-4 text-center bg-white text-pink-bici font-normal rounded-md shadow-md hover:bg-pink-bici hover:text-white border border-pink-bici hover:border-white transition-colors focus:outline-none focus:ring-2 focus:ring-blue-400 focus:ring-opacity-75;
     }
+    .btn-bici-wait {
+      @apply py-2 px-4 text-center bg-gray-400 text-white font-normal rounded-md shadow-md border border-white;
+    }
     .btn-bici-lg {
       @apply py-4 px-8 text-center bg-white text-pink-bici font-normal rounded-md shadow-md hover:bg-pink-bici hover:text-white border border-pink-bici hover:border-white transition-colors focus:outline-none focus:ring-2 focus:ring-blue-400 focus:ring-opacity-75;
     }

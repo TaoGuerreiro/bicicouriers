@@ -46,8 +46,8 @@ class DeliveryReflex < ApplicationReflex
     current_user == String ? @user = current_user : @user = User.first
     @delivery.user = @user
     if @delivery.save
-      DispatchMailer.with(delivery: @delivery, email: params[:delivery][:email], phone: params[:delivery][:phone]).new_delivery.deliver_now
-      morph "#notifications", render(NotificationComponent.new(type: 'success', data: {timeout: 10, title: 'Course enregistrée !', body: "Nous avons pris note de la livraison, s'il nous manque des détails, nous vous recontacterons.", countdown: true }))
+      send_notification(@delivery, params[:delivery][:email], params[:delivery][:phone])
+      cable_ready.add_css_class(selector: '[id="form"]', name: 'hidden').broadcast
     else
       morph "#delivery_form", render(Delivery::FormComponent.new(delivery: @delivery, city: @city))
       morph "#notifications", render(NotificationComponent.new(type: 'error', data: {timeout: 10, title: 'Petite erreur ?', body: "Il semblerait qu'il manque quelque chose.", countdown: true }))
@@ -55,6 +55,50 @@ class DeliveryReflex < ApplicationReflex
   end
 
   private
+
+  def slack_message(delivery, phone, mail)
+    {
+      "blocks": [
+        {
+          "type": "section",
+          "text": {
+            "type": "mrkdwn",
+            "text": "Livraison pour *#{mail}* entre *#{delivery.pickups.first.start_hour}* et *#{delivery.pickups.first.end_hour}*"
+          }
+        },
+        {
+          "type": "section",
+          "text": {
+            "type": "mrkdwn",
+            "text": "entre *#{delivery.pickups.first.address}* et *#{delivery.drops.first.address}*"
+          }
+        },
+        {
+          "type": "section",
+          "text": {
+            "type": "mrkdwn",
+            "text": "Détails : #{delivery.details}"
+          }
+        },
+        {
+          "type": "section",
+          "text": {
+            "type": "mrkdwn",
+            "text": "Téléphone : #{phone}"
+          }
+        }
+      ]
+    }
+  end
+
+  def send_notification(delivery, email, phone)
+    #MAIL
+    DispatchMailer.with(delivery: delivery, email: email, phone: phone).new_delivery.deliver_now
+    #SLACK
+    SendSlackNotificationJob.perform_later(slack_message(delivery, phone, email))
+    #DOM
+    morph "#notifications", render(NotificationComponent.new(type: 'success', data: {timeout: 10, title: 'Course enregistrée !', body: "Nous avons pris note de la livraison, s'il nous manque des détails, nous vous recontacterons.", countdown: true }))
+  end
 
   def build
     @delivery = Delivery.new(delivery_params)
