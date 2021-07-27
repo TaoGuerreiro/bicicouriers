@@ -47,7 +47,7 @@ class DeliveryReflex < ApplicationReflex
     @delivery.user = @user
     if @delivery.save
       send_notification(@delivery, params[:delivery][:email], params[:delivery][:phone])
-      # cable_ready.add_css_class(selector: '[id="form"]', name: 'hidden').broadcast
+      cable_ready.add_css_class(selector: '[id="form"]', name: 'hidden').broadcast
       # morph :nothing
     else
       morph "#delivery_form", render(Delivery::FormComponent.new(delivery: @delivery, city: @city))
@@ -96,7 +96,7 @@ class DeliveryReflex < ApplicationReflex
     #MAIL
     DispatchMailer.with(delivery: delivery, email: email, phone: phone).new_delivery.deliver_now
     #SLACK
-    SendSlackNotificationJob.perform_later(slack_message(delivery, phone, email))
+    # SendSlackNotificationJob.perform_later(slack_message(delivery, phone, email))
     #DOM
     morph "#notifications", render(NotificationComponent.new(type: 'success', data: {timeout: 10, title: 'Course enregistrée !', body: "Nous avons pris note de la livraison, s'il nous manque des détails, nous vous recontacterons.", countdown: true }))
   end
