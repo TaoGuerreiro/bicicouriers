@@ -11,7 +11,11 @@ export default class extends Controller {
   }
 
   beforeReflex() {
-    this.formTarget.classList.add('pointer-events-none')
+    if (this.hasFormTarget) {
+      this.formTarget.classList.add('pointer-events-none')
+    } else {
+      return
+    }
   }
 
   switch() {
