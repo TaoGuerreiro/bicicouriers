@@ -4,20 +4,18 @@ import places from 'places.js';
 
 
 export default class extends Controller {
-  static targets = ['pickup', 'drop', 'form', 'switchable', 'submit', 'address-input']
+  static targets = ['pickup', 'drop', 'form', 'switchable', 'submit', 'address']
 
   connect() {
     StimulusReflex.register(this)
-    this.initAddressAutoComplete();
+    // this.initAddressAutoComplete();
   }
 
-  beforeReflex() {
-    if (this.hasFormTarget) {
-      this.formTarget.classList.add('pointer-events-none')
-    } else {
-      return
-    }
-  }
+  // beforeReflex() {
+  //   if (this.hasFormTarget) {
+  //     this.formTarget.classList.add('pointer-events-none')
+  //   }
+  // }
 
   switch() {
     this.switchableTargets.forEach((target) => {
@@ -31,8 +29,8 @@ export default class extends Controller {
 
 
   initAddressAutoComplete = () => {
-    if (this.hasAddressInput) {
-      this.addressInputTargets.forEach((input) => {
+    if (this.hasAddressTarget) {
+      this.addressTargets.forEach((input) => {
         const address = places({
           container: input,
         });
@@ -42,11 +40,14 @@ export default class extends Controller {
     }
   }
 
-  beforeCreate() {
-    this.submitTarget.value = "Patienter"
-    this.submitTarget.disabled = true
-    this.submitTarget.classList.remove('btn-bici')
-    this.submitTarget.classList.add('btn-bici-wait')
-  }
+  // beforeCreate() {
+  //   this.submitTarget.value = "Patienter"
+  //   this.submitTarget.disabled = true
+  //   this.submitTarget.classList.remove('btn-bici')
+  //   this.submitTarget.classList.add('btn-bici-wait')
+  // }
 
+  // afterReflex() {
+  //   this.initAddressAutoComplete();
+  // }
 }

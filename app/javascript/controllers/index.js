@@ -11,12 +11,13 @@ import debounced from 'debounced'
 debounced.initialize()
 
 const application = Application.start()
+
 const context = require.context("controllers", true, /_controller\.js$/)
 const contextComponents = require.context("../../components", true, /controller.js$/)
 
 application.load(
   definitionsFromContext(context).concat(
-    definitionsFromContext(contextComponents)
+  definitionsFromContext(contextComponents)
   )
 )
 
