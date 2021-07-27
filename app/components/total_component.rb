@@ -103,7 +103,7 @@ class TotalComponent < ViewComponent::Base
     heure_end, min_end = city.end_hour.split(':').map(&:to_i)
     today_start = DateTime.new(Time.now.year, Time.now.month, Time.now.day, heure_start, min_start).utc
     today_end = DateTime.new(Time.now.year, Time.now.month, Time.now.day, heure_end, min_end).utc
-    now = Time.now.utc
+    now = Time.now.utc + 2.hours
 
     if today_start > now
       end_hour = today_start + urgence.range
