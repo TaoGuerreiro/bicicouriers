@@ -8,9 +8,12 @@ class ContactsController < ApplicationController
 
 
   def create
+    # raise
     @contact = Contact.new(contact_params)
+    @contact.city = City.first
     if @contact.save
-      redirect_to root_path, flash: {notice: 'Merci pour le message, on vous recontacte rapidement !'}
+        redirect_to root_path, flash: {notice: 'Merci pour le message, on vous recontacte rapidement !'}
+        SendSlackNotificationJob.perform_now("test")
     else
       render :new, flash: {error: 'Il doit y avoir un soucis dans le formulaire !'}
     end
@@ -22,7 +25,4 @@ class ContactsController < ApplicationController
     params.require(:contact).permit(:name, :email, :phone, :message, :nickname)
   end
 
-  def simulation_params
-    params.require(:simulation).permit('data-spot')
-  end
 end
