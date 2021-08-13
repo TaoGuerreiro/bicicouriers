@@ -10,7 +10,10 @@ import controller from '../controllers/application_controller'
 import debounced from 'debounced'
 debounced.initialize()
 
+
 const application = Application.start()
+
+application.consumer = consumer
 
 const context = require.context("controllers", true, /_controller\.js$/)
 const contextComponents = require.context("../../components", true, /controller.js$/)

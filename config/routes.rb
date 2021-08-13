@@ -29,7 +29,6 @@
 
 
 
-  # resources :shopping_carts, only: [:show, :create]
 
   get '/orders/success'
   get '/orders/cancel'
@@ -49,16 +48,6 @@
     resources :pickups, only: [ :new, :create, :update ]
     resources :drops, only: [ :new, :create, :update ]
   end
-  # resources :cities, only: [:current]
-
-  get 'cities/current', to: 'cities#current'
-
-  #course building
-  post 'delivery/distance', to: 'deliveries#distance'
-  post 'delivery/ticket_urgence', to: 'deliveries#ticket_urgence'
-  get 'delivery/init_urgences', to: 'deliveries#init_urgences'
-  post 'delivery/ticket_distance', to: 'deliveries#ticket_distance'
-  post 'delivery/ticket_volume', to: 'deliveries#ticket_volume'
 
   resources :favorite_addresses, only: [:new, :create, :index, :show, :destroy]
 

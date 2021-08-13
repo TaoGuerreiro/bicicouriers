@@ -1,0 +1,12 @@
+<%= simple_form_for @contact,  data: {reflex: 'submit->Contact#create'}   do |f| %>
+  <%= f.input :name, label: false, required: true, :placeholder => 'Nom*', input_html: { class: "w-full border-b-2 border-yellow-bici mb-4 rounded-sm bg-transparent p-2 focus:border-transparent placeholder-gray-500 focus:outline-none focus:ring focus:ring-blue-bici" } %>
+  <%= f.input :email, label: false, :required => true, :placeholder => 'Email*', input_html: { class: "w-full border-b-2 border-yellow-bici mb-4 rounded-sm bg-transparent p-2 focus:border-transparent placeholder-gray-500 focus:outline-none focus:ring focus:ring-blue-bici" } %>
+  <%= f.input :phone, label: false, :required => true, :placeholder => 'Téléphone*', input_html: { class: "w-full border-b-2 border-yellow-bici mb-4 rounded-sm bg-transparent p-2 focus:border-transparent placeholder-gray-500 focus:outline-none focus:ring focus:ring-blue-bici" } %>
+  <%= f.input :message, label: false, :as => :text, :required => true, :placeholder => 'Message', input_html: { class: "w-full border-b-2 border-yellow-bici mb-4 rounded-sm bg-transparent p-2 focus:border-transparent placeholder-gray-500 focus:outline-none focus:ring focus:ring-blue-bici  h-40" } %>
+  <div class= "hidden">
+    <%= f.input :nickname, :hint => 'Leave this field blank!', class: "hidden" %>
+  </div>
+  <div class="flex justify-end">
+    <%= f.button :submit, 'Envoyer', :class=> "btn-bici-lg" %>
+  </div>
+<% end %>
