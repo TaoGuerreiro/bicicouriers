@@ -1,4 +1,4 @@
-class SendMessageToSlackAdminJob < ApplicationJob
+class SendMessageToSlackCommerceJob < ApplicationJob
   queue_as :default
 
   def perform(text)
