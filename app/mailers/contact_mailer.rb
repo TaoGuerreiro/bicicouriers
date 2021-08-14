@@ -6,8 +6,7 @@ class ContactMailer < ApplicationMailer
   #   en.user_mailer.welcome.subject
   #
   def new_contact
-    @contact = params[:contact] # Instance variable => available in view
+    @contact = params[:contact]
     mail(to: 'contact@bicicouriers.fr', subject: "Nouveau message du site")
-    # This will render a view in `app/views/user_mailer`!
   end
 end
