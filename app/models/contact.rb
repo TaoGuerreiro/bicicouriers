@@ -12,7 +12,7 @@ class Contact < ApplicationRecord
 private
 
   def new_contact
-    ContactMailer.with(contact: self).new_contact.deliver_now
+    # ContactMailer.with(contact: self).new_contact.deliver_now
   end
 
 
