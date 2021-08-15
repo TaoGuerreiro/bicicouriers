@@ -23,15 +23,15 @@ export default class extends Controller {
     this.submitTarget.classList.add('btn-bici-wait')
   }
 
-  afterReflex() {
+  finalizeReflex() {
     this.initAddressAutoComplete();
     if (this.pickupTarget.value != "") {
       this.dropTarget.disabled = false
-      this.dropTarget.classList.remove('bg-gray-200')
+      // this.dropTarget.classList.remove('bg-gray-200')
     }
     if (this.pickupTarget.value != "" && this.dropTarget.value != "") {
       this.detailsTarget.disabled = false
-      this.detailsTarget.classList.remove('bg-gray-200')
+      // this.detailsTarget.classList.remove('bg-gray-200')
     }
   }
 
