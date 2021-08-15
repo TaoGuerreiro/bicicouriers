@@ -20,4 +20,19 @@
     .btn-bici-sec {
       @apply py-2 px-4 text-center text-white font-normal rounded-md hover:bg-pink-bici-dark hover:text-white border border-pink-bici hover:border-white transition-colors focus:outline-none focus:ring-2 focus:ring-blue-400 focus:ring-opacity-75;
     }
+    p {
+      @apply text-white leading-loose;
+    }
+    h1 {
+      @apply text-5xl text-white;
+    }
+    h2 {
+      @apply text-4xl text-white;
+    }
+    h3 {
+      @apply text-3xl text-white;
+    }
+    h4 {
+      @apply text-2xl text-white;
+    }
   }
