@@ -4,7 +4,7 @@ import places from 'places.js';
 
 
 export default class extends Controller {
-  static targets = ['pickup', 'drop', 'form', 'switchable', 'submit', 'address']
+  static targets = ['pickup', 'drop', 'form', 'switchable', 'submit', 'address', 'details']
 
   connect() {
     StimulusReflex.register(this)
@@ -25,6 +25,17 @@ export default class extends Controller {
 
   afterReflex() {
     this.initAddressAutoComplete();
+    if (this.pickupTarget.value != "") {
+      this.dropTarget.disabled = false
+      this.dropTarget.classList.remove('bg-gray-200')
+    }
+    if (this.pickupTarget.value != "" && this.dropTarget.value != "") {
+      this.detailsTarget.disabled = false
+      this.detailsTarget.classList.remove('bg-gray-200')
+    }
+  }
+
+  afterDistance() {
   }
 
   switch() {
@@ -39,11 +50,17 @@ export default class extends Controller {
 
   initAddressAutoComplete = () => {
     if (this.hasAddressTarget) {
-      this.addressTargets.forEach((input) => {
+      console.log("step1")
+      this.addressTargets.forEach((addressInputs) => {
         const address = places({
-          container: input,
+          container: addressInputs,
         });
         address.on('change', ()=> {
+          console.log(this.dropTarget.value)
+          if (this.dropTarget.value != "") {
+            console.log("step2")
+            // this.stimulate('Delivery#distance')
+          }
         });
       })
     }
