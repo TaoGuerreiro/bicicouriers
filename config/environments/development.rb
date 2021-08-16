@@ -1,14 +1,7 @@
 Rails.application.configure do
   config.session_store :cache_store
   config.to_prepare do
-    Devise::SessionsController.layout "application"
 
-    Devise::RegistrationsController.layout proc{ |controller| user_signed_in? ? "application" : "application" }
-    Devise::ConfirmationsController.layout "application"
-    Devise::UnlocksController.layout "application"
-    Devise::PasswordsController.layout "application"
-    UsersController.layout "application"
-    OrdersController.layout proc{ |controller| user_signed_in? ? "application" : "application" }
   end
 
   config.i18n.available_locales = :fr
