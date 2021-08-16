@@ -1,7 +1,7 @@
 module.exports = {
     purge: {
       // Learn more on https://tailwindcss.com/docs/controlling-file-size/#removing-unused-css
-      enabled: true,
+      enabled: false,
       content: [
         'app/views/**/*.html.erb',
         'app/components/**/*.html.erb',

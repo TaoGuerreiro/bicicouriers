@@ -3,12 +3,12 @@ Rails.application.configure do
   config.to_prepare do
     Devise::SessionsController.layout "application"
 
-    Devise::RegistrationsController.layout proc{ |controller| user_signed_in? ? "commandes" : "application" }
+    Devise::RegistrationsController.layout proc{ |controller| user_signed_in? ? "application" : "application" }
     Devise::ConfirmationsController.layout "application"
     Devise::UnlocksController.layout "application"
     Devise::PasswordsController.layout "application"
-    UsersController.layout "commandes"
-    OrdersController.layout proc{ |controller| user_signed_in? ? "commandes" : "application" }
+    UsersController.layout "application"
+    OrdersController.layout proc{ |controller| user_signed_in? ? "application" : "application" }
   end
 
   config.i18n.available_locales = :fr
