@@ -10,18 +10,31 @@
   </div>
 
   <div class="">
-    <div class="flex align-middle h-12 my-4 p-3 rounded-lg bg-blue-bici transform transition hover:translate-x-8 cursor-pointer">
-      <div class=''><i class="fas fa-ticket-alt pl-2 pr-4"></i><p class="transform -translate-y-1/2 top-1/2 absolute right-3 text-xl">Nouvelle livraison</p></div>
-    </div>
-    <div class="flex align-middle h-12 my-4 p-3 rounded-lg bg-blue-bici transform transition hover:translate-x-8 cursor-pointer">
-      <div class=''><i class="fas fa-ticket-alt pl-2 pr-4"></i><p class="transform -translate-y-1/2 top-1/2 absolute right-3 text-xl">Mes livraisons</p></div>
-    </div>
-    <div class="flex align-middle h-12 my-4 p-3 rounded-lg bg-blue-bici transform transition hover:translate-x-8 cursor-pointer">
-      <div class=''><i class="fas fa-ticket-alt pl-2 pr-4"></i><p class="transform -translate-y-1/2 top-1/2 absolute right-3 text-xl">Mes carnets</p></div>
-    </div>
-    <div class="flex align-middle h-12 my-4 p-3 rounded-lg bg-blue-bici transform transition hover:translate-x-8 cursor-pointer">
-      <div class=''><i class="fas fa-ticket-alt pl-2 pr-4"></i><p class="transform -translate-y-1/2 top-1/2 absolute right-3 text-xl">Mes adresses</p></div>
-    </div>
+
+    <%= link_to new_delivery_path do %>
+      <div class="flex align-middle h-12 my-4 p-3 rounded-lg bg-blue-bici transform transition hover:translate-x-8 cursor-pointer">
+        <div class=''><i class="fas fa-ticket-alt pl-2 pr-4"></i><p class="transform -translate-y-1/2 top-1/2 absolute right-3 text-xl">Nouvelle livraison</p></div>
+      </div>
+    <% end %>
+
+    <%= link_to deliveries_path do %>
+      <div class="flex align-middle h-12 my-4 p-3 rounded-lg bg-blue-bici transform transition hover:translate-x-8 cursor-pointer">
+        <div class=''><i class="fas fa-ticket-alt pl-2 pr-4"></i><p class="transform -translate-y-1/2 top-1/2 absolute right-3 text-xl">Mes livraisons</p></div>
+      </div>
+    <% end %>
+
+    <%= link_to tickets_books_path do %>
+      <div class="flex align-middle h-12 my-4 p-3 rounded-lg bg-blue-bici transform transition hover:translate-x-8 cursor-pointer">
+        <div class=''><i class="fas fa-ticket-alt pl-2 pr-4"></i><p class="transform -translate-y-1/2 top-1/2 absolute right-3 text-xl">Mes carnets</p></div>
+      </div>
+    <% end %>
+
+    <%= link_to favorite_addresses_path do %>
+      <div class="flex align-middle h-12 my-4 p-3 rounded-lg bg-blue-bici transform transition hover:translate-x-8 cursor-pointer">
+        <div class=''><i class="fas fa-ticket-alt pl-2 pr-4"></i><p class="transform -translate-y-1/2 top-1/2 absolute right-3 text-xl">Mes adresses</p></div>
+      </div>
+    <% end %>
+
     <!--
     <div class="flex align-middle h-12 my-4 p-3 rounded-lg bg-blue-bici transform transition hover:translate-x-8 cursor-pointer">
       <div class=''><i class="fas fa-ticket-alt pl-2 pr-4"></i><p class="transform -translate-y-1/2 top-1/2 absolute right-3 text-xl">Mes livraisons</p></div>
