@@ -74,10 +74,10 @@
   </head>
 
   <body >
-    <% if params[:controller] != "users" %>
+    <% if params[:controller] == "pages" || params[:controller] == "services" || params[:controller] == "avantages" || params[:controller] == "contacts" %>
       <%= render 'shared/navbar' %>
     <% end %>
-        <% if params[:controller] == "users" %>
+    <% if params[:controller] == "users" %>
 
     <% end %>
 

@@ -1,15 +1,32 @@
 
 
 
-<div class="hcf-main-container">
-  <div class="header">
-    <h1>Mes courses</h1>
-  </div>
-  <div class="content">
-    <%= render 'shared/index_courses', courses: @pending %>
-    <%= render 'shared/index_courses', courses: @accepted %>
-    <%= render 'shared/index_courses', courses: @inprogress %>
-    <%= render 'shared/index_courses', courses: @done %>
+    <%# <%= render 'shared/index_courses', courses: @pending %>
+    <%# <%= render 'shared/index_courses', courses: @accepted %>
+    <%# <%= render 'shared/index_courses', courses: @inprogress %>
+    <%# <%= render 'shared/index_courses', courses: @done %>
+
+
+<div class="bg-blue-bici w-screen h-screen flex text-white">
+  <%= render 'shared/sidebar' %>
+  <div class="w-full p-4">
+    <div class="pb-4">
+      <h1>Mes Livraisons</h1>
+    </div>
+    <div class="grid grid-cols-3 gap-4">
+      <div class="w-full h-48 bg-blue-bici-dark rounded-xl p-2">
+        <div class="flex"><p><i class="fas fa-arrow-up"></i> 13 rue de budapest, 44000 Nantes</p> </div>
+        <div class="flex"><p><i class="fas fa-arrow-down"></i> 26bis rue Aristide Briand, 44230 Saint Sébastien sur loire</p> </div>
+      </div>
+      <div class="w-full h-48 bg-blue-bici-dark rounded-xl p-2">
+        <div class="flex"><p><i class="fas fa-arrow-up"></i> 13 rue de budapest, 44000 Nantes</p> </div>
+        <div class="flex"><p><i class="fas fa-arrow-down"></i> 26bis rue Aristide Briand, 44230 Saint Sébastien sur loire</p> </div>
+      </div>
+      <div class="w-full h-48 bg-blue-bici-dark rounded-xl p-2">
+        <div class="flex"><p><i class="fas fa-arrow-up"></i> 13 rue de budapest, 44000 Nantes</p> </div>
+        <div class="flex"><p><i class="fas fa-arrow-down"></i> 26bis rue Aristide Briand, 44230 Saint Sébastien sur loire</p> </div>
+      </div>
+    </div>
+
   </div>
 </div>
-

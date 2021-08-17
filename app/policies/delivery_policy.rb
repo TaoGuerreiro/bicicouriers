@@ -1,4 +1,4 @@
-class CoursePolicy < ApplicationPolicy
+class DeliveryPolicy < ApplicationPolicy
   class Scope < Scope
     def resolve
       if user.admin?
@@ -7,6 +7,10 @@ class CoursePolicy < ApplicationPolicy
         scope.where(user: user)
       end
     end
+  end
+
+  def index?
+    user_is_owner_or_admin
   end
 
   def show?
