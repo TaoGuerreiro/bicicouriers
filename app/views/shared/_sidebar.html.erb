@@ -1,36 +1,57 @@
-<div class="main-side-nav">
+<div class="h-full w-96 py-4 px-4 bg-blue-bici-dark flex flex-col border-r-2" data-controller='navbar' data-navbar-target='sidebar'>
 
-  <div class="user-infos">
-   <% if current_user == true %>
-    <p id="name"> <%= current_user.first_name%> <strong> <%=current_user.last_name %></strong></p>
-    <p id="company"> <%= current_user.company %> </p>
-    <p id="email"> <%= current_user.email %> </p>
-    <p id="phone"> <%= current_user.phone %> </p>
-    <% end %>
+  <div class="pb-6">
+    <div class="flex justify-between pr-4 mb-4">
+      <h1 class='cursor-default text-2xl italic tracking-wider mb-4'><strong class="transition <%= ['hover:text-pink-bici', 'hover:text-blue-bici', 'hover:text-yellow-bici'].sample %> ">BICI</strong>COURIERS</h1>
+      <i data-action='click->navbar#collapseSidebar' class="text-2xl fas fa-angle-double-left transition cursor-pointer transform hover:scale-125"></i>
+    </div>
+      <p class='font-font-extralight tracking-wider'><%= current_user.first_name %> <strong><%= current_user.last_name %></strong> </p>
+      <p class='text-xl font-semibold tracking-wider'><%= current_user.company %> </p>
   </div>
-  <div class="button-list">
-    <% if current_user.shopping_carts.present? %>
-    <% (cart =  current_user.shopping_carts.last.carnets.count + current_user.shopping_carts.last.courses.count) %>
-    <% end %>
-    <ul>
-      <%= link_to "Nouvelle course", new_course_path, class: "bici-button" %>
-      <br>
-      <%#= raise %>
-      <li class="<%= 'select' if (params[:controller] == 'shopping_carts' && params[:action] == 'show')%>">
-      <%= link_to "Mon panier (#{cart})", shopping_cart_path(current_user.shopping_carts.last.id) if (current_user.shopping_carts.last.present? && current_user.shopping_carts.last.state == 'pending') %> </li>
-      <li class="<%= 'select' if (params[:controller] == 'courses' && params[:action] == 'index')%>"> <%= link_to "Mes livraisons", courses_path  %></li>
-      <li class="<%= 'select' if (params[:controller] == 'carnets' && params[:action] == 'index')%>"> <%= link_to "Mes carnets de tickets", carnets_path  %></li>
-      <li class="<%= 'select' if (params[:controller] == 'users' && params[:action] == 'show')%>"> <%= link_to "Mes informations", profil_path  %> </li>
-      <br>
-    </ul>
-  </div>
-  <div class="side-oeuf-1">
-    <%= image_tag 'navbar/oeuf-side-1.svg', alt: "oeuf-sur-le-plat-design" %>
-  </div>
-  <div class="myBar label-center"></div>
 
-  <%= render 'shared/sidebar_counter', remote: true %>
+  <div class="">
+
+    <%= link_to new_delivery_path do %>
+      <div class="flex align-middle h-12 my-4 p-3 rounded-lg bg-blue-bici transform transition hover:translate-x-8 cursor-pointer">
+        <div class=''><i class="fas fa-ticket-alt pl-2 pr-4"></i><p class="transform -translate-y-1/2 top-1/2 absolute right-3 text-xl">Nouvelle livraison</p></div>
+      </div>
+    <% end %>
+
+    <%= link_to deliveries_path do %>
+      <div class="flex align-middle h-12 my-4 p-3 rounded-lg bg-blue-bici transform transition hover:translate-x-8 cursor-pointer">
+        <div class=''><i class="fas fa-ticket-alt pl-2 pr-4"></i><p class="transform -translate-y-1/2 top-1/2 absolute right-3 text-xl">Mes livraisons</p></div>
+      </div>
+    <% end %>
+
+    <%= link_to tickets_books_path do %>
+      <div class="flex align-middle h-12 my-4 p-3 rounded-lg bg-blue-bici transform transition hover:translate-x-8 cursor-pointer">
+        <div class=''><i class="fas fa-ticket-alt pl-2 pr-4"></i><p class="transform -translate-y-1/2 top-1/2 absolute right-3 text-xl">Mes carnets</p></div>
+      </div>
+    <% end %>
+
+    <%= link_to favorite_addresses_path do %>
+      <div class="flex align-middle h-12 my-4 p-3 rounded-lg bg-blue-bici transform transition hover:translate-x-8 cursor-pointer">
+        <div class=''><i class="fas fa-ticket-alt pl-2 pr-4"></i><p class="transform -translate-y-1/2 top-1/2 absolute right-3 text-xl">Mes adresses</p></div>
+      </div>
+    <% end %>
+
+    <!--
+    <div class="flex align-middle h-12 my-4 p-3 rounded-lg bg-blue-bici transform transition hover:translate-x-8 cursor-pointer">
+      <div class=''><i class="fas fa-ticket-alt pl-2 pr-4"></i><p class="transform -translate-y-1/2 top-1/2 absolute right-3 text-xl">Mes livraisons</p></div>
+    </div>
+    <div class="flex align-middle h-12 my-4 p-3 rounded-lg bg-blue-bici transform transition hover:translate-x-8 cursor-pointer">
+      <div class=''><i class="fas fa-ticket-alt pl-2 pr-4"></i><p class="transform -translate-y-1/2 top-1/2 absolute right-3 text-xl">Mes livraisons</p></div>
+    </div> -->
+  </div>
+
+  <div class='self-end w-full h-full'>
+    <div class="p-4">
+      <svg viewBox="0 0 36 36" class="circular-chart orange">
+        <path class="circle-bg" d="M18 2.0845 a 15.9155 15.9155 0 0 1 0 31.831 a 15.9155 15.9155 0 0 1 0 -31.831"/>
+        <path class="circle" stroke-dasharray="90, 100" d="M18 2.0845 a 15.9155 15.9155 0 0 1 0 31.831 a 15.9155 15.9155 0 0 1 0 -31.831"/>
+        <text x="18" y="20.35" class="percentage">90%</text>
+      </svg>
+    </div>
+  </div>
 
 </div>
-
-
