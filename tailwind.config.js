@@ -1,5 +1,6 @@
 const colors = require('tailwindcss/colors.js')
 
+
 module.exports = {
     purge: {
       // Learn more on https://tailwindcss.com/docs/controlling-file-size/#removing-unused-css
