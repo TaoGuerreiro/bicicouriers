@@ -43,6 +43,12 @@
 .percentage {
   fill: rgb(248, 239, 239);
   font-family: sans-serif;
-  font-size: 0.5em;
+  font-size: 0.25em;
+  text-anchor: middle;
+}
+.percentage-1 {
+  fill: #ff9f00;
+  font-family: sans-serif;
+  font-size: 0.35em;
   text-anchor: middle;
 }
