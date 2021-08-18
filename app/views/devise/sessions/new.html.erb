@@ -1,8 +1,8 @@
 
-<div class="main-container-session">
-  <div class="log-form">
+<div class="bg-bridge-image h-screen w-screen bg-cover bg-center">
+  <div class="p-40 h-screen inline-block ">
     <%= simple_form_for(resource, as: resource_name, url: session_path(resource_name)) do |f| %>
-      <div class="form-inputs">
+      <div class="z-40 opacity-100 bg-blend-exclusion">
         <%= f.input :email,
                     required: true,
                     placeholder: "Email",
@@ -17,12 +17,10 @@
         <%= f.input :remember_me, as: :boolean if devise_mapping.rememberable? %>
       </div>
 
-      <div class="form-actions">
+      <div class="d-flex flex-col">
         <%= f.button :submit, "Connexion", class: "bici-button" %>
         <%= render "devise/shared/links" %>
       </div>
     <% end %>
   </div>
 </div>
-
-

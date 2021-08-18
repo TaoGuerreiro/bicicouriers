@@ -1,44 +1,44 @@
-<div class="user-main-container">
-  <div class="first-container">
-    <div class="first-left">
-      <h2>Mes informations</h2>
-      <p><span class="title"> Société :</span> <%=            current_user.company        %></p>
-      <p><span class="title"> Prénom :</span> <%=             current_user.first_name     %></p>
-      <p><span class="title"> Nom :</span> <%=                current_user.last_name      %></p>
-      <p><span class="title"> Adresse :</span> <%=            current_user.address        %></p>
-      <p><span class="title"> Email :</span> <%=              current_user.email          %></p>
-      <p><span class="title"> Téléphone :</span> <%=          current_user.phone          %></p>
-      <p><span class="title"> Facture par papier :</span> <%=  current_user.paper_invoice ? "Oui" : "Non"  %></p>
-      <p><span class="title"> Renouvelement des carnets automatique :</span> <%=  current_user.carnet_renewal ? "Oui" : "Non"  %></p>
-      <p><span class="title"> Mots de passe :</span> *******</p>
-      <%= link_to "Modifier", edit_user_registration_path, class: "bici-button" %>
-    </div>
+<div class="bg-blue-bici w-screen h-screen flex text-white">
+  <%= render 'shared/sidebar' %>
+  <div class="w-full">
+    <div class="p-24 grid grid-cols-2 gap-4">
+      <div class="rounded shadow-2xl p-4">
+        <h2 class=" pb-4">Mes informations</h2>
+        <p class=""><span class="font-bold text-xl"> Société :</span> <%=            current_user.company        %></p>
+        <p class=""><span class="font-bold text-xl"> Prénom :</span> <%=             current_user.first_name     %></p>
+        <p class=""><span class="font-bold text-xl"> Nom :</span> <%=                current_user.last_name      %></p>
+        <p class=""><span class="font-bold text-xl"> Adresse :</span> <%=            current_user.address        %></p>
+        <p class=""><span class="font-bold text-xl"> Email :</span> <%=              current_user.email          %></p>
+        <p class=""><span class="font-bold text-xl"> Téléphone :</span> <%=          current_user.phone          %></p>
+        <p class=""><span class="font-bold text-xl"> Facture par papier :</span> <%= current_user.paper_invoice ? "Oui" : "Non"  %></p>
+        <p class=""><span class="font-bold text-xl"> Renouvelement des carnets automatique :</span> <%=  current_user.tickets_book_renewal ? "Oui" : "Non"  %></p>
+        <p class=""><span class="font-bold text-xl"> Mots de passe :</span> *******</p>
+        <%= link_to "Modifier", edit_user_registration_path, class: "btn-bici" %>
+      </div>
 
 
-    <div class="first-right">
-      <h2>Adresse de facturation</h2>
-      <p><span class="title"> Société :</span> <%=  current_user.billing_company          %></p>
-      <p><span class="title"> Adresse :</span> <%=  current_user.billing_address  %></p>
-      <%= link_to "Modifier", edit_user_registration_path, class: "bici-button"   %> <br>
-      <br>
-      <%= link_to orders_path do %>
-        <h2>Mes factures</h2>
-      <% end %>
-    </div>
-  </div>
+      <div class="rounded shadow-2xl p-4">
+        <h2>Adresse de facturation</h2>
+        <p><span class=""> Société :</span> <%=  current_user.billing_company          %></p>
+        <p><span class=""> Adresse :</span> <%=  current_user.billing_address  %></p>
+        <%= link_to "Modifier", edit_user_registration_path, class: "bici-button"   %> <br>
+        <br>
+        <%= link_to orders_path do %>
+          <h2>Mes factures</h2>
+        <% end %>
+      </div>
 
 
-  <div class="second-container">
-    <div class="second-left">
-      <h2>Mes parrainages</h2>
-      <p><span class="title">Vous n’avez pas encore de parrainages.</span></p>
-      <%= link_to "Ajouter des fillots (bientôt) !", "#", class: "bici-button"   %>
+      <div class="rounded shadow-2xl p-4">
+        <h2>Mes parrainages</h2>
+        <p><span class="">Vous n’avez pas encore de parrainages.</span></p>
+        <%= link_to "Ajouter des fillots (bientôt) !", "#", class: "bici-button"   %>
 
-    </div>
-    <div class="second-right">
-      <h2>Mes adresses</h2>
-      <%= link_to "Mes addresses préférées !", favorite_addresses_path, class: "bici-button"   %>
+      </div>
+      <div class="rounded shadow-2xl p-4">
+        <h2>Mes adresses</h2>
+        <%= link_to "Mes addresses préférées !", favorite_addresses_path, class: "bici-button"   %>
+      </div>
     </div>
   </div>
 </div>
-

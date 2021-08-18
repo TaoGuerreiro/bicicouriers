@@ -1,13 +1,13 @@
 import { Controller } from "stimulus"
 
 export default class extends Controller {
-  static targets = [ 'responsiveButton', 'userButton', 'responsiveMenu', 'userMenu', 'DOM' ]
+  static targets = [ 'responsiveButton', 'userButton', 'responsiveMenu', 'userMenu', 'DOM', 'sidebar' ]
 
 
     connect() {
         console.log('Connexion du controller NAVBAR')
 
-    }   
+    }
 
     collapseResponsiveMenu () {
         this.responsiveMenuTarget.classList.toggle('hidden')
@@ -23,5 +23,13 @@ export default class extends Controller {
         this.responsiveMenuTarget.classList.add('hidden')
         }
     }
-}
 
+    collapseSidebar() {
+      console.log('coucou')
+      this.sidebarTarget.classList.toggle('w-24')
+      this.sidebarTarget.classList.toggle('w-96')
+
+    }
+
+
+}

@@ -74,10 +74,16 @@
   </head>
 
   <body >
-    <%= render 'shared/navbar' %>
-    <%= render 'shared/flashes' %>
+    <% if params[:controller] == "pages" || params[:controller] == "services" || params[:controller] == "avantages" || params[:controller] == "contacts" %>
+      <%= render 'shared/navbar' %>
+    <% end %>
+    <% if params[:controller] == "users" %>
+
+    <% end %>
+
     <%= yield %>
     <%= render 'shared/social' %>
+
     <div id="notifications" class="z-50 absolute right-12 bottom-12 cursor-pointer w-96">
 
     </div>
