@@ -103,10 +103,15 @@ class DeliveryReflex < ApplicationReflex
   def build
     @delivery = Delivery.new(delivery_params)
     @city = City.first
+    @user = current_user
   end
 
   def morph_form
-    morph "#delivery_form", render(Delivery::FormComponent.new(delivery: @delivery, city: @city))
+    if params[:controller] == 'pages'
+      morph "#delivery_form", render(Delivery::FormComponent.new(delivery: @delivery, city: @city))
+    else
+      morph "#delivery_form", render(Delivery::AppFormComponent.new(delivery: @delivery, city: @city, user: @user))
+    end
   end
 
   def delivery_params
