@@ -20,21 +20,15 @@ class DeliveriesController < ApplicationController
   end
 
   def new
-    # @favorite_addresses = policy_scope(FavoriteAddress).order(title: :asc)
-    # @user = User.new
-    # @availible_options = Option.joins(:user_options).where('user_id = ?', current_user.id)
+    @delivery = Delivery.new
+    @city = City.first
+    @user = current_user
 
-    # @delivery = Delivery.new
-    # @drop = @delivery.drops.build
-    # @pickup = @delivery.pickups.build
-    # @tickets_book = current_user.tickets_books.joins(:order_item).where('remaining_tickets > ? AND order_items.state = ?', 0, 'paid').first
+    @pickups = @delivery.pickups.build
+    @drops = @delivery.drops.build
 
-
-    # @drop = Drop.geocoded
-    # @drop_marker = [lat: @drop.first.latitude, lng: @drop.first.longitude]
-
-    # authorize @drop
-    # authorize @pickup
+    @delivery.urgence = Urgence.find_by(name: 'Dans la journée')
+    @delivery.volume = Volume.find_by(name: '- de 6 kilos')
   end
 
   def create
