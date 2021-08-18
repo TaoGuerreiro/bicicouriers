@@ -13,19 +13,75 @@
     <div class="pb-4">
       <h1>Mes Livraisons</h1>
     </div>
-    <div class="grid grid-cols-3 gap-4">
-      <div class="w-full h-48 bg-blue-bici-dark rounded-xl p-2">
-        <div class="flex"><p><i class="fas fa-arrow-up"></i> 13 rue de budapest, 44000 Nantes</p> </div>
-        <div class="flex"><p><i class="fas fa-arrow-down"></i> 26bis rue Aristide Briand, 44230 Saint Sébastien sur loire</p> </div>
+    <div class="grid grid-cols-1 lg:grid-cols-2 xl:grid-cols-3 2xl:grid-cols-4 gap-4">
+      <div class="relative w-full h-48 bg-blue-bici-dark rounded-xl p-2 hover:scale-102 transform transition cursor-pointer">
+        <div class="flex"><p class="truncate font-thin"><i class="fas fa-arrow-up"></i> Départ au <span class="font-bold">13 rue de budapest, 44000 Nantes</span></p> </div>
+        <div class="flex border-b"><p class="truncate font-thin"><i class="fas fa-arrow-down"></i> Livraison au <span class="font-bold">26bis rue Aristide Briand, 44230 Saint Sébastien sur loire</span></p> </div>
+        <div class="flex"><p>14:00 <i class="fas fa-arrows-alt-h"></i> 16:00</p></div>
+
+        <div class="flex absolute left-2 bottom-2">
+          <p class=" text-red-600 pr-2">En attente</p>
+          <svg class="animate-spin my-auto h-5 w-5 text-white" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24">
+              <circle class="opacity-25" cx="12" cy="12" r="10" stroke="currentColor" stroke-width="4"></circle>
+              <path class="opacity-75" fill="currentColor" d="M4 12a8 8 0 018-8V0C5.373 0 0 5.373 0 12h4zm2 5.291A7.962 7.962 0 014 12H0c0 3.042 1.135 5.824 3 7.938l3-2.647z"></path>
+          </svg>
+        </div>
+        <div class="absolute right-2 bottom-8"><span class="text-xl text-yellow-bici font-semibold ">Imprimeur</div>
+        <div class="absolute right-2 bottom-2"><span class="font-bold text-yellow-bici">3 tickets</span> soit <span class="font-bold text-xl text-yellow-bici">12,60 €</span></div>
       </div>
-      <div class="w-full h-48 bg-blue-bici-dark rounded-xl p-2">
-        <div class="flex"><p><i class="fas fa-arrow-up"></i> 13 rue de budapest, 44000 Nantes</p> </div>
-        <div class="flex"><p><i class="fas fa-arrow-down"></i> 26bis rue Aristide Briand, 44230 Saint Sébastien sur loire</p> </div>
+
+      <div class="relative w-full h-48 bg-blue-bici-dark rounded-xl p-2 hover:scale-102 transform transition cursor-pointer">
+        <div class="flex"><p class="truncate font-thin"><i class="fas fa-arrow-up"></i> Départ au <span class="font-bold">13 rue de budapest, 44000 Nantes</span></p> </div>
+        <div class="flex border-b"><p class="truncate font-thin"><i class="fas fa-arrow-down"></i> Livraison au <span class="font-bold">23 rue de verdun, 44000 Nantes</span></p> </div>
+        <div class="flex"><p>14:00 <i class="fas fa-arrows-alt-h"></i> 16:00</p></div>
+        <div class="flex absolute left-2 bottom-2">
+          <p class=" text-green-500 pr-2">Validée <i class="fas fa-arrow-right"></i></p>
+
+        </div>
+        <div class="absolute right-2 bottom-8"><span class="text-xl text-yellow-bici font-semibold "></div>
+        <div class="absolute right-2 bottom-2"><span class="font-bold text-yellow-bici">3 tickets</span> soit <span class="font-bold text-xl text-yellow-bici">12,60 €</span></div>
       </div>
-      <div class="w-full h-48 bg-blue-bici-dark rounded-xl p-2">
-        <div class="flex"><p><i class="fas fa-arrow-up"></i> 13 rue de budapest, 44000 Nantes</p> </div>
-        <div class="flex"><p><i class="fas fa-arrow-down"></i> 26bis rue Aristide Briand, 44230 Saint Sébastien sur loire</p> </div>
+
+      <div class="relative w-full h-48 bg-blue-bici-dark rounded-xl p-2 hover:scale-102 transform transition cursor-pointer">
+        <div class="flex"><p class="truncate font-thin"><i class="fas fa-arrow-up"></i> Départ au <span class="font-bold">13 rue de budapest, 44000 Nantes</span></p> </div>
+        <div class="flex border-b"><p class="truncate font-thin"><i class="fas fa-arrow-down"></i> Livraison au <span class="font-bold">123 routes de paris, 44320 Vertou</span></p> </div>
+        <div class="flex"><p>14:00 <i class="fas fa-arrows-alt-h"></i> 16:00</p></div>
+
+        <div class="flex absolute left-2 bottom-2">
+          <p class=" text-orange-400 pr-2">En livraison</p>
+          <svg class="animate-spin my-auto h-5 w-5 text-white" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24">
+              <circle class="opacity-25" cx="12" cy="12" r="10" stroke="currentColor" stroke-width="4"></circle>
+              <path class="opacity-75" fill="currentColor" d="M4 12a8 8 0 018-8V0C5.373 0 0 5.373 0 12h4zm2 5.291A7.962 7.962 0 014 12H0c0 3.042 1.135 5.824 3 7.938l3-2.647z"></path>
+          </svg>
+        </div>
+        <div class="absolute right-2 bottom-8"><span class="text-xl text-yellow-bici font-semibold ">Mme Martin</div>
+        <div class="absolute right-2 bottom-2"><span class="font-bold text-yellow-bici">2 tickets</span> soit <span class="font-bold text-xl text-yellow-bici">8,40 €</span></div>
       </div>
+
+      <div class="relative w-full h-48 bg-blue-bici-dark rounded-xl p-2 hover:scale-102 transform transition cursor-pointer">
+        <div class="flex"><p class="truncate font-thin"><i class="fas fa-arrow-up"></i> Départ au <span class="font-bold">13 rue de budapest, 44000 Nantes</span></p> </div>
+        <div class="flex border-b"><p class="truncate font-thin"><i class="fas fa-arrow-down"></i> Livraison au <span class="font-bold">26bis rue Aristide Briand, 44230 Saint Sébastien sur loire</span></p> </div>
+        <div class="flex"><p>14:00 <i class="fas fa-arrows-alt-h"></i> 16:00</p></div>
+
+        <div class="flex absolute left-2 bottom-2">
+          <p class=" text-green-500 pr-2">Livrée <i class="fas fa-check"></i></p>
+        </div>
+        <div class="absolute right-2 bottom-8"><span class="text-xl text-yellow-bici font-semibold ">Comptable</div>
+        <div class="absolute right-2 bottom-2"><span class="font-bold text-yellow-bici">3 tickets</span> soit <span class="font-bold text-xl text-yellow-bici">12,60 €</span></div>
+      </div>
+
+      <div class="relative w-full h-48 bg-blue-bici-dark rounded-xl p-2 hover:scale-102 transform transition cursor-pointer">
+        <div class="flex"><p class="truncate font-thin"><i class="fas fa-arrow-up"></i> Départ au <span class="font-bold">13 rue de budapest, 44000 Nantes</span></p> </div>
+        <div class="flex border-b"><p class="truncate font-thin"><i class="fas fa-arrow-down"></i> Livraison au <span class="font-bold">26bis rue Aristide Briand, 44230 Saint Sébastien sur loire</span></p> </div>
+        <div class="flex"><p>14:00 <i class="fas fa-arrows-alt-h"></i> 16:00</p></div>
+
+        <div class="flex absolute left-2 bottom-2">
+          <p class=" text-red-500 pr-2">Annulée <i class="fas fa-times"></i></p>
+        </div>
+        <div class="absolute right-2 bottom-8"><span class="text-xl text-yellow-bici font-semibold ">Mme Martin</div>
+        <div class="absolute right-2 bottom-2"><span class="font-bold text-yellow-bici">0 tickets</span> soit <span class="font-bold text-xl text-yellow-bici">0 €</span></div>
+      </div>
+
     </div>
 
   </div>
