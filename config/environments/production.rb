@@ -1,12 +1,6 @@
 Rails.application.configure do
   config.to_prepare do
-    Devise::SessionsController.layout "application"
-    Devise::RegistrationsController.layout proc{ |controller| user_signed_in? ? "commandes" : "application" }
-    Devise::ConfirmationsController.layout "application"
-    Devise::UnlocksController.layout "application"
-    Devise::PasswordsController.layout "application"
-    UsersController.layout "commandes"
-    OrdersController.layout proc{ |controller| user_signed_in? ? "commandes" : "application" }
+
   end
   # Settings specified here will take precedence over those in config/application.rb.
 
