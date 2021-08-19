@@ -1,4 +1,4 @@
-// const colors = require('tailwindcss/colors.js')
+const colors = require('tailwindcss/colors.js')
 
 
 module.exports = {
@@ -53,7 +53,7 @@ module.exports = {
           'pink-bici': '#FF016C',
           'pink-bici-dark': '#D8005A',
           'yellow-bici': '#FFCC00',
-          // orange: colors.orange,
+          orange: colors.orange,
         },
       },
     },
