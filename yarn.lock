@@ -1347,9 +1347,9 @@
     "readable-stream" "^2.0.6"
 
 "arg@^5.0.0":
-  "integrity" "sha512-4P8Zm2H+BRS+c/xX1LrHw0qKpEhdlZjLCgWy+d78T9vqa2Z2SiD2wMrYuWIAFy5IZUD7nnNXroRttz+0RzlrzQ=="
-  "resolved" "https://registry.npmjs.org/arg/-/arg-5.0.0.tgz"
-  "version" "5.0.0"
+  "integrity" "sha512-e0hDa9H2Z9AwFkk2qDlwhoMYE4eToKarchkQHovNdLTCYMHZHeRjI71crOh+dio4K6u1IcwubQqo79Ga4CyAQA=="
+  "resolved" "https://registry.npmjs.org/arg/-/arg-5.0.1.tgz"
+  "version" "5.0.1"
 
 "argparse@^1.0.7":
   "integrity" "sha512-o5Roy6tNG4SL/FOkCAN6RzjiakZS25RLYFrcMttJqbdd8BWrnA+fGz57iN5Pb06pvBGvl5gQ0B48dJlslXvoTg=="
@@ -3276,9 +3276,9 @@
   "version" "2.1.0"
 
 "fastq@^1.6.0":
-  "integrity" "sha512-HOnr8Mc60eNYl1gzwp6r5RoUyAn5/glBolUzP/Ez6IFVPMPirxn/9phgL6zhOtaTy7ISwPvQ+wT+hfcRZh/bzw=="
-  "resolved" "https://registry.npmjs.org/fastq/-/fastq-1.11.1.tgz"
-  "version" "1.11.1"
+  "integrity" "sha512-VNX0QkHK3RsXVKr9KrlUv/FoTa0NdbYoHHl7uXHv2rzyHSlxjdNAKug2twd9luJxpcyNeAgf5iPPMutJO67Dfg=="
+  "resolved" "https://registry.npmjs.org/fastq/-/fastq-1.12.0.tgz"
+  "version" "1.12.0"
   dependencies:
     "reusify" "^1.0.4"
 
