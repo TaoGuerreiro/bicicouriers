@@ -3,7 +3,7 @@ const colors = require('tailwindcss/colors.js')
 
 module.exports = {
     purge: {
-      enabled: false,
+      enabled: true,
       content: [
         'app/views/**/*.html.erb',
         'app/components/**/*.html.erb',
@@ -40,7 +40,7 @@ module.exports = {
       },
       extend: {
         animation: {
-          'spin-slow': 'spin 3s linear infinite',
+          'spin-slow': 'spin 3s linear infinite'
         },
         backgroundImage: theme => ({
           'bridge-image': "url('../../assets/images/story/story-image.png')",
@@ -52,7 +52,7 @@ module.exports = {
           'pink-bici': '#FF016C',
           'pink-bici-dark': '#D8005A',
           'yellow-bici': '#FFCC00',
-          orange: colors.orange,
+          orange: colors.orange
         },
       },
     },
