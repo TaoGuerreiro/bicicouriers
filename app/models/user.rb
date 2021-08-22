@@ -13,6 +13,20 @@ class User < ApplicationRecord
   validates :email, presence: true
   validates :phone, presence: true
 
+  def remaining_tickets
+    self.tickets_books.sum(:remaining_tickets)
+  end
+
+  def have_remaining_tickets?
+    self.tickets_books.sum(:remaining_tickets).positive?
+  end
+
+  def last_availible_tickets_book
+    self.tickets_books.where('remaining_tickets > ?', 0).first
+  end
+  def next_availible_tickets_book
+    self.tickets_books.where('remaining_tickets > ?', 0).second
+  end
 
   # after_create :send_welcome_email
 

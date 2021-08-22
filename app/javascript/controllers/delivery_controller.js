@@ -8,6 +8,7 @@ export default class extends Controller {
 
   connect() {
     StimulusReflex.register(this)
+    this.initAddressAutoComplete();
   }
 
   beforeReflex() {
@@ -50,7 +51,7 @@ export default class extends Controller {
 
   initAddressAutoComplete = () => {
     if (this.hasAddressTarget) {
-      console.log("step1")
+      // console.log("step1")
       this.addressTargets.forEach((addressInputs) => {
         const address = places({
           container: addressInputs,
@@ -58,7 +59,7 @@ export default class extends Controller {
         address.on('change', ()=> {
           console.log(this.dropTarget.value)
           if (this.dropTarget.value != "") {
-            console.log("step2")
+            // console.log("step2")
             // this.stimulate('Delivery#distance')
           }
         });
