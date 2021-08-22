@@ -10,8 +10,8 @@ class Delivery < ApplicationRecord
   belongs_to :urgence
   belongs_to :volume
 
-  validates :email, presence: true
-  validates :phone, presence: true
+  # validates :email, presence: true
+  # validates :phone, presence: true
 
   validates_associated :urgence, :volume
 

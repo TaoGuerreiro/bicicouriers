@@ -306,14 +306,33 @@ puts '_________________VOLUME => OK________________'
 
 puts '___________________TICKETS BOOK____________________'
 
+  carnet_50 = TicketsBook.create!(
+    {
+      book_template_id: carnet_50_t.id,
+      user_id: florent.id,
+      remaining_tickets: 0,
+      status: 'finnished',
+      price_cents: carnet_50_t.price_cents
+    }
+  )
 
   carnet_50 = TicketsBook.create!(
     {
       book_template_id: carnet_50_t.id,
       user_id: florent.id,
-      remaining_tickets: 50,
-      status: 'draft',
+      remaining_tickets: 12,
+      status: 'validate',
       price_cents: carnet_50_t.price_cents
+    }
+  )
+
+  carnet_100 = TicketsBook.create!(
+    {
+      book_template_id: carnet_100_t.id,
+      user_id: florent.id,
+      remaining_tickets: carnet_100_t.tickets_count,
+      status: 'validate',
+      price_cents: carnet_100_t.price_cents
     }
   )
 

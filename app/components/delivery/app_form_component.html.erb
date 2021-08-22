@@ -3,17 +3,20 @@
     <div class="bg-white m-auto h-auto">
 
       <p class="text-right"><i data-action="click->delivery#exit" class="fas fa-times col-span-full hover:text-gray-400 text-lg mr-1"></i></p>
-      <%= simple_form_for @delivery, data: {reflex: 'submit->Delivery#create'} do |field|%>
+      <%= simple_form_for @delivery, data: {reflex: 'submit->Delivery#create_online'} do |field|%>
 
         <div class="grid md:grid-cols-2 gap-2 p-4">
           <%= field.hidden_field :distance %>
-          <%= field.hidden_field :tickets_distance%>
+          <%= field.hidden_field :tickets_distance %>
+          <%= field.hidden_field :tickets_count %>
 
           <div class="w-full h-full">
             <%= field.fields_for :pickups do |p|%>
               <%= p.input :address, label: 'Adresse de départ',
                                     placeholder: "8 Passage de la poule noire, 44000 Nantes",
-                                    input_html: {'data-reflex': 'debounced:change->Delivery#distance', 'data-delivery-target': "address pickup",  'data-reflex-permanent': true, value: @user.address } %>
+                                    input_html: { 'data-reflex': 'debounced:change->Delivery#distance',
+                                                  'data-delivery-target': "address pickup",
+                                                  'data-reflex-permanent': true } %>
               <%= p.input :start_hour, label: false, as: :string, input_html: { value: start_hour, class: 'hidden'  } %>
               <%= p.input :end_hour,   label: false, as: :string, input_html: { value: end_hour, class: 'hidden'  } %>
             <% end %>
@@ -45,8 +48,8 @@
                                                   class: @delivery.pickups.first.address.nil? || @delivery.drops.first.address.nil? ? 'bg-gray-200' : "" }  %>
 
           <div class="col-span-full flex justify-between">
-            <%= field.input :phone, label: 'Téléphone', wrapper_html: { class: "w-1/2 pr-2" } %>
-            <%= field.input :email, label: 'Email',     wrapper_html: { class: "w-1/2" } %>
+            <%#= field.input :phone, label: 'Téléphone', wrapper_html: { class: "w-1/2 pr-2" } %>
+            <%#= field.input :email, label: 'Email',     wrapper_html: { class: "w-1/2" } %>
           </div>
 
           <%= render(TotalComponent.new(delivery: @delivery, city: @city)) %>
