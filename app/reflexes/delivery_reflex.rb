@@ -156,7 +156,7 @@ class DeliveryReflex < ApplicationReflex
 
     @delivery.urgence = Urgence.find_by(name: 'Dans la journée')
     @delivery.volume = Volume.find_by(name: '- de 6 kilos')
-
+    return @delivery
   end
 
 
