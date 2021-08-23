@@ -1,9 +1,8 @@
-<div id="form" class="form z-50 p-12 h-screen w-full" data-delivery-target="form">
+<div id="form" class="form z-50 p-12 h-screen w-full " data-delivery-target="form">
 
-    <div class="bg-white m-auto h-auto">
+    <div class="text-blue-bici-dark bg-blue-50 m-auto h-auto">
 
-      <p class="text-right"><i data-action="click->delivery#exit" class="fas fa-times col-span-full hover:text-gray-400 text-lg mr-1"></i></p>
-      <%= simple_form_for @delivery, data: {reflex: 'submit->Delivery#create_online'} do |field|%>
+      <%= form_with model: @delivery, data: {reflex: 'submit->Delivery#create_online'} do |field|%>
 
         <div class="grid md:grid-cols-2 gap-2 p-4">
           <%= field.hidden_field :distance %>
@@ -12,45 +11,56 @@
 
           <div class="w-full h-full">
             <%= field.fields_for :pickups do |p|%>
-              <%= p.input :address, label: 'Adresse de départ',
+              <%= p.label :address, 'Adresse de départ' %>
+              <%= p.text_field :address, label: 'Adresse de départ',
                                     placeholder: "8 Passage de la poule noire, 44000 Nantes",
-                                    input_html: { 'data-reflex': 'debounced:change->Delivery#distance',
-                                                  'data-delivery-target': "address pickup",
-                                                  'data-reflex-permanent': true } %>
-              <%= p.input :start_hour, label: false, as: :string, input_html: { value: start_hour, class: 'hidden'  } %>
-              <%= p.input :end_hour,   label: false, as: :string, input_html: { value: end_hour, class: 'hidden'  } %>
+                                    'data-reflex': 'debounced:change->Delivery#distance',
+                                    'data-delivery-target': "address pickup",
+                                    'data-reflex-permanent': true,
+                                    class: 'input-bici' %>
+              <%= p.text_field :start_hour, label: false, as: :string, value: start_hour, class: 'hidden' %>
+              <%= p.text_field :end_hour,   label: false, as: :string, value: end_hour, class: 'hidden' %>
             <% end %>
           </div>
           <div class="w-full h-full">
             <%= field.fields_for :drops do |p|%>
-              <%= p.input :address, label: "Adresse d'arrivée",
+              <%= p.label :address, "Adresse de livraison" %>
+              <%= p.text_field :address, label: "Adresse d'arrivée",
                                     placeholder: "8 Passage de la poule noire, 44000 Nantes",
-                                    input_html: { 'data-reflex': 'debounced:change->Delivery#distance',
-                                                  'data-delivery-target': "address drop",
-                                                  'data-reflex-permanent': true,
-                                                  # disabled: true,
-                                                  # class: @delivery.pickups.first.address.nil? ? 'bg-gray-200' : ""
-                                                  } %>
-              <%= p.input :start_hour, label: false, as: :string, input_html: { value: start_hour, class: 'hidden' } %>
-              <%= p.input :end_hour,   label: false, as: :string, input_html: { value: end_hour, class: 'hidden'  } %>
+                                    'data-reflex': 'debounced:change->Delivery#distance',
+                                    'data-delivery-target': "address drop",
+                                    'data-reflex-permanent': true,
+                                    class: 'input-bici' %>
+              <%= p.text_field :start_hour, label: false, as: :string, value: start_hour, class: 'hidden' %>
+              <%= p.text_field :end_hour,   label: false, as: :string, value: end_hour, class: 'hidden' %>
             <% end %>
           </div>
 
-          <%= field.association :urgence, label: "Délai de livraison",    collection: Urgence.includes(:city_urgences).where(city_urgences: { city_id: @city.id }), include_blank: false, label_required: true, input_html: {'data-reflex': 'change->Delivery#urgence'} %>
-          <%= field.association :volume,  label: "Volume à transporter",  collection: Volume.includes(:city_volumes).where(city_volumes: { city_id: @city.id }),    include_blank: false, label_required: true, input_html: {'data-reflex': 'change->Delivery#volume'}  %>
-
-          <%= field.input :details, as: :text,
+          <div>
+            <div><%= field.label :urgence_id, 'Délais de livraisons', class: 'label-bici'%></div>
+            <div>
+              <%= field.collection_select :urgence_id, Urgence.joins(:city_urgences).where(city_urgences: { city_id: @city.id }), :id, :name,
+                                        {},
+                                        { class: 'select-bici', 'data-reflex': 'change->Delivery#urgence'} %>
+            </div>
+          </div>
+          <div>
+            <div><%= field.label :volume_id, 'Volume à transporter', class: 'label-bici'%></div>
+            <div>
+              <%= field.collection_select :volume_id, Volume.includes(:city_volumes).where(city_volumes: { city_id: @city.id }), :id, :name,
+                                          {},
+                                          { class: 'select-bici', 'data-reflex': 'change->Delivery#volume'}  %>
+            </div>
+          </div>
+          <%= field.label :details, "Détails de livraison" %>
+          <%= field.text_area :details, as: :text,
                                     placeholder: "Détails important pour la livraison (intephone, étage, etc.)",
                                     wrapper_html: {class: "col-span-full"},
-                                    input_html: { 'data-reflex-permanent': true,
-                                                  'data-delivery-target': 'details',
-                                                  disabled: true,
-                                                  class: @delivery.pickups.first.address.nil? || @delivery.drops.first.address.nil? ? 'bg-gray-200' : "" }  %>
+                                    'data-reflex-permanent': true,
+                                    'data-delivery-target': 'details',
+                                    disabled: true,
+                                    class:  @delivery.pickups.first.address.nil? || @delivery.drops.first.address.nil? ? 'bg-gray-200 col-span-full input-bici' : 'col-span-full input-bici'  %>
 
-          <div class="col-span-full flex justify-between">
-            <%#= field.input :phone, label: 'Téléphone', wrapper_html: { class: "w-1/2 pr-2" } %>
-            <%#= field.input :email, label: 'Email',     wrapper_html: { class: "w-1/2" } %>
-          </div>
 
           <%= render(TotalComponent.new(delivery: @delivery, city: @city)) %>
 

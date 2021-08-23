@@ -75,7 +75,7 @@ class DeliveryReflex < ApplicationReflex
       #-> User n'a pas/plus de ticket
       # morph un truc pour expliquer qu'il faut racheter un carnet avant de continuer
   end
-  binding.pry
+  # binding.pry
   @delivery.price_cents = (@delivery.tickets_count * current_user.last_availible_tickets_book.book_template.price_cents)
     if @delivery.save
       @delivery = build_a_new_delivery
