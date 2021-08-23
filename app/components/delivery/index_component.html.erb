@@ -1,0 +1,15 @@
+<% @deliveries.each do |delivery| %>
+
+  <div class="shadow-xl relative min-w-72 h-48 bg-white text-blue-bici-dark rounded-xl p-2 hover:scale-102 transform transition cursor-pointer">
+
+    <div class="flex mb-2 "><p class="truncate font-thin text-sm text-blue-bici-dark"><i class="fas fa-arrow-up"></i> Départ au <span class="font-bold text-base "> <%= delivery.pickups.first.address %></span></p> </div>
+    <div class="flex border-b"><p class="truncate font-thin text-sm mb-3 text-blue-bici-dark"><i class="fas fa-arrow-down"></i> Livraison au <span class="font-bold text-base"><%= delivery.drops.first.address %></span></p> </div>
+    <div class="flex justify-center mt-3"><p class="text-lg text-blue-bici-dark"><%= delivery.pickups.first.start_hour %> <i class="fas fa-arrows-alt-h"></i> <%= delivery.pickups.first.end_hour %></p></div>
+
+    <%= render(Delivery::StatusComponent.new(status: delivery.status )) %>
+
+    <div class="absolute right-2 bottom-10"><span class="text-xl text-orange-500 font-semibold "></div>
+    <div class="absolute right-2 bottom-2"><span class="font-bold text-orange-500"><%= delivery.tickets_count %> tickets</span> soit <span class="font-bold text-xl text-orange-500"><%= delivery.price_cents / 100.to_f %> €</span></div>
+  </div>
+
+<% end %>

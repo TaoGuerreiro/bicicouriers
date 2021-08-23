@@ -1,4 +1,4 @@
-<div data-controller="delivery" class="bg-blue-bici w-screen h-screen flex text-white">
+<div data-controller="delivery" class="w-screen h-screen flex text-blue-bici-dark bg-blue-50">
   <%= render 'shared/sidebar' %>
   <div class="w-full" id="delivery_form">
     <%= render(Delivery::AppFormComponent.new(delivery: @delivery, city: @city, user: @user)) %>

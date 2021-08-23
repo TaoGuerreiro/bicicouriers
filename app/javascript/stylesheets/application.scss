@@ -3,6 +3,12 @@
 @import "tailwindcss/utilities.css";
 
 @layer components {
+    .input-bici {
+      @apply appearance-none border border-transparent w-full py-2 px-4 bg-white text-gray-700 placeholder-gray-400 shadow-md rounded-lg text-base focus:outline-none focus:ring-2 focus:ring-blue-bici focus:border-transparent my-2;
+    }
+    .select-bici {
+      @apply border border-transparent w-full py-2 px-4 bg-white text-gray-700 placeholder-gray-400 shadow-md rounded-lg text-base focus:outline-none focus:ring-2 focus:ring-blue-bici focus:border-transparent my-2;
+    }
     .btn-bici {
       @apply py-2 px-4 text-center bg-white text-pink-bici font-normal rounded-md shadow-md hover:bg-pink-bici hover:text-white border border-pink-bici hover:border-white transition-colors focus:outline-none focus:ring-2 focus:ring-blue-400 focus:ring-opacity-75;
     }
