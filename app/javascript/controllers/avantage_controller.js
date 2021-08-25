@@ -4,7 +4,7 @@ export default class extends Controller {
   static targets = [ 'card']
 
   connect() {
-    console.log("ADVANTAGE")
+    // console.log("ADVANTAGE")
   }
   getRandomInt = (max) => {
     return Math.floor(Math.random() * max);

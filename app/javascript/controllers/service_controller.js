@@ -1,5 +1,4 @@
 import { Controller } from "stimulus"
-import HorizontalScroll from '@oberon-amsterdam/horizontal';
 
 export default class extends Controller {
   static targets = [ 'card' ]

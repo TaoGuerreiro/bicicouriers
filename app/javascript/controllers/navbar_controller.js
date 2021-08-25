@@ -5,7 +5,7 @@ export default class extends Controller {
 
 
     connect() {
-        console.log('Connexion du controller NAVBAR')
+        // console.log('Connexion du controller NAVBAR')
 
     }
 
