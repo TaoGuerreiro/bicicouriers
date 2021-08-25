@@ -7,6 +7,7 @@ export default class extends Controller {
   static targets = ['pickup', 'drop', 'form', 'switchable', 'submit', 'address', 'details']
 
   connect() {
+    console.log('oui')
     StimulusReflex.register(this)
     this.initAddressAutoComplete();
   }

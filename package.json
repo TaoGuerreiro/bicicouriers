@@ -2,7 +2,6 @@
   "name": "BiciCouriers",
   "private": true,
   "dependencies": {
-    "@oberon-amsterdam/horizontal": "^1.0.4",
     "@rails/ujs": "^6.0.3-3",
     "@rails/webpacker": "5.2.1",
     "autoprefixer": "^9.8.6",
@@ -11,6 +10,7 @@
     "elliptic": "^6.5.4",
     "http-proxy": "^1.18.1",
     "jquery": "^3.5.1",
+    "mapbox-gl": "^2.4.1",
     "node-forge": "^0.10.0",
     "places.js": "^1.19.0",
     "popper.js": "^1.16.1",
