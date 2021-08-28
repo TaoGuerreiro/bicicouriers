@@ -11,6 +11,8 @@ class DeliveryReflex < ApplicationReflex
 
   def distance
     @delivery.user = User.first
+    # cable_ready.console_log(message: element.dataset.coordinates)
+    # cable_ready.element.set_dataset_property(coordinates: 'coucou')
     begin
       url = 'https://maps.googleapis.com/maps/api/directions/json?'
       query = {

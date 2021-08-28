@@ -7,7 +7,7 @@ export default class extends Controller {
   static targets = ['pickup', 'drop', 'form', 'switchable', 'submit', 'address', 'details']
 
   connect() {
-    console.log('oui')
+    // console.log('oui')
     StimulusReflex.register(this)
     this.initAddressAutoComplete();
   }
@@ -58,7 +58,7 @@ export default class extends Controller {
           container: addressInputs,
         });
         address.on('change', ()=> {
-          console.log(this.dropTarget.value)
+          // console.log(this.dropTarget.value)
           if (this.dropTarget.value != "") {
             // console.log("step2")
             // this.stimulate('Delivery#distance')

@@ -15,7 +15,10 @@
               <%= p.text_field :address, label: 'Adresse de départ',
                                     placeholder: "8 Passage de la poule noire, 44000 Nantes",
                                     'data-reflex': 'debounced:change->Delivery#distance',
+                                    'data-action': 'change->mapbox#noname',
+                                    'data-coordinates': [],
                                     'data-delivery-target': "address pickup",
+                                    'data-mapbox-target': "address pickup",
                                     'data-reflex-permanent': true,
                                     class: 'input-bici' %>
               <%= p.text_field :start_hour, label: false, as: :string, value: start_hour, class: 'hidden' %>
@@ -26,9 +29,12 @@
             <%= field.fields_for :drops do |p|%>
               <%= p.label :address, "Adresse de livraison" %>
               <%= p.text_field :address, label: "Adresse d'arrivée",
-                                    placeholder: "8 Passage de la poule noire, 44000 Nantes",
+                                    placeholder: "Destination...",
                                     'data-reflex': 'debounced:change->Delivery#distance',
+                                    'data-action': 'change->mapbox#noname',
+                                    'data-coordinates': [],
                                     'data-delivery-target': "address drop",
+                                    'data-mapbox-target': "address drop",
                                     'data-reflex-permanent': true,
                                     class: 'input-bici' %>
               <%= p.text_field :start_hour, label: false, as: :string, value: start_hour, class: 'hidden' %>
